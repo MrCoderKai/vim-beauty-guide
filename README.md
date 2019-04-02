@@ -21,6 +21,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 -   - [Vim](#vim)
     - [NERD tree](#nerd-tree)
     - [ctags](#ctags)
+    - [Code Folder](#code-folder)
 
 # Configure Files List
 Describe: There are some other configurations that are not mentioned in this guide. An easy way to configure is move the following configure files to the specific path.
@@ -81,15 +82,16 @@ This error has been discussed in [issue 3271](https://github.com/Valloric/YouCom
 
 > This is not a YCM issue, it's clearly a Vim and/or macOS issue. Using Vim or macVim from homerbew is recommended.
 
-1. Click [MacVim download link](https://macvim-dev.github.io/macvim/) to download MacVim;
+1. Click [MacVim download link](https://macvim-dev.github.io/macvim/) to download **MacVim**;
 2. Double click **MacVim.dmg** to install **MacVim**.
-3. Add following configurations to **~/.bash_profile** to replace **vim** by **MacVim**
+3. `/Applications/MacVim.app/Contents/MacOS/Vim ~/.bash_profile`
+4. Add following configurations to **~/.bash_profile** to replace **vim** by **MacVim**
 ```
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias vi='vim'
 ```
-4. The default editor of command `crontab` is `nano`, which would accur the same error, which is talked above. Thus, its editor should be replaced by **MacVim**, too.
-5. Add following configurations to **~/.bash_profile** to replace default editor of `crontab` by **MacVim**
+5. The default editor of command `crontab` is `nano`, which would accur the same error, which is talked above. Thus, its editor should be replaced by **MacVim**, too.
+6. Add following configurations to **~/.bash_profile** to replace default editor of `crontab` by **MacVim**
 
 ```
 # set default editor for command `crontab -e`, if not, error accurs
@@ -215,3 +217,9 @@ Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 ## ctags
 1. `Ctrl+]` - Go to definition
 2. `Ctrl+T` - Go back
+
+## Code Folder
+1. `zo` - Open code folder
+2. `zO` - Open all code folders
+3. `zc` - Close code folder
+4. `zC` - Close all code folders
