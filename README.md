@@ -3,7 +3,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 
 # Contents
 
-# Configer Files List
+# Configure Files List
 1. .bash_profile: This file should under path `~/`
 2. my_configs.vim: This file should under path `~/.vim_runtime/`
 3. .ycm_extra_conf.py This file should under path `~/.vim_runtime/my_plugins/YouCompleteMe`
@@ -31,7 +31,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 # Enable Syntax Highlight, and Set Background and Colorscheme for Vim
 1. Generally, vim configrations are setted in **~/.vimrc** files. But, a better choice is **~/.vim_runtime/my_configs.vim** after installing **Ultimate Vimrc**.
 2. `vim ~/.vim_runtime/my_configs.vim`
-3. Add following configrations in **my_config.vim**:
+3. Add following configrations in **my_configs.vim**:
    ```
    syntax enable
    set background=dark
@@ -52,7 +52,7 @@ Exception MemoryError: MemoryError() in <module 'threading' from '/System/Librar
 '
 ```
 This error has been discussed in [issue 3271](https://github.com/Valloric/YouCompleteMe/issues/3271). The conclusion is
->> This is not a YCM issue, it's clearly a Vim and/or macOS issue. Using Vim or macVim from homerbew is recommended.
+> This is not a YCM issue, it's clearly a Vim and/or macOS issue. Using Vim or macVim from homerbew is recommended.
 1. Click [MacVim download link](https://macvim-dev.github.io/macvim/) to download MacVim;
 2. Double click **MacVim.dmg** to install **MacVim**.
 3. Add following configrations to **~/.bash_profile** to replace **vim** by **MacVim**
