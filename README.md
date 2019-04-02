@@ -16,7 +16,9 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install ctags](#install-ctags)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
+-   - [Vim](#vim)
     - [NERD tree](#nerd-tree)
+    - [ctags](#ctags)
 
 # Configure Files List
 Describe: There are some other configurations that are not mentioned in this guide. A easy way to configure is move the following configure files to the specific path.
@@ -64,6 +66,7 @@ Detail usage of **Ultimate Vimrc**, please refer to [Included Plugins and remain
 
 # Install **MacVim**
 In order to successfully install **YouCompleteMe** plugin, we should install **MacVim** to replace **vim**. Otherwise, the following error would accur:
+
 ```
 Vim: Caught deadly signal SEGV
 Error detected while processing function <SNR>91_PollServerReady[7]...<SNR>91_Pyeval: Vim: Finished.
@@ -71,8 +74,11 @@ line   4:
 Exception MemoryError: MemoryError() in <module 'threading' from '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.pyc> ignored [1] .  36295 segmentation fault vim
 '
 ```
+
 This error has been discussed in [issue 3271](https://github.com/Valloric/YouCompleteMe/issues/3271). The conclusion is
+
 > This is not a YCM issue, it's clearly a Vim and/or macOS issue. Using Vim or macVim from homerbew is recommended.
+
 1. Click [MacVim download link](https://macvim-dev.github.io/macvim/) to download MacVim;
 2. Double click **MacVim.dmg** to install **MacVim**.
 3. Add following configurations to **~/.bash_profile** to replace **vim** by **MacVim**
@@ -82,6 +88,7 @@ alias vi='vim'
 ```
 4. The default editor of command `crontab` is `nano`, which would accur the same error, which is talked above. Thus, its editor should be replaced by **MacVim**, too.
 5. Add following configurations to **~/.bash_profile** to replace default editor of `crontab` by **MacVim**
+
 ```
 # set default editor for command `crontab -e`, if not, error accurs
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
@@ -89,6 +96,7 @@ export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 6. Exit editting **~/.bash_profile** and use `source ~/.bash_profile` to enable those configurations.
 
 # Install **YouCompleteMe**
+
 YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for [Vim](https://www.vim.org/).
 1. `cd ~/.vim_runtime/my_plugins`
 2. `git clone https://github.com/Valloric/YouCompleteMe.git`
@@ -96,11 +104,13 @@ YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for [V
 4. `cd ~/.vim_runtime/my_plugins/YouCompleteMe`
 5. `./install.py --clang-completer`
 After installing **YouCompleteMe**, we should create **.ycm_extra_conf.py** file and configure **YouCompleteMe** in **~/.vim_runtime/my_configs.vim** to make **YouCompleteMe** works normally. By default, there is a **.ycm_extra_conf.py** file in the **YouCompleteMe** installation folder - `~/.vim_runtime/my_plugins/YouCompleteMe/`, but it is not a right configuration file for C-family auto completion. Thus, we should create a new **.ycm_extra_conf.py** file for C-family auto completion. The steps are
+
 1. `cd ~/.vim_runtime/my_plugins/YouCompleteMe/`
 2. `mv .ycm_extra_conf.py .ycm_extra_conf.py.default`
 3. `vim .ycm_extra_conf.py`
 4. Copy the content of [this link](https://raw.githubusercontent.com/Valloric/ycmd/66030cd94299114ae316796f3cad181cac8a007c/.ycm_extra_conf.py) to the new **.ycm_extra_conf.py** file. This configuration works well for python and C-family languages, configurations for other languages please refer to [Offical Guides](https://github.com/Valloric/YouCompleteMe#c-family-semantic-completion)
 5. Add following configurations to `~/.vim_runtime/my_configs.vim` file
+
 ```
 " configurations for YouCompleteMe plugin
 " disable those configurations is YouCompleteMe is not installed
@@ -148,10 +158,15 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 
 # Install **ctags**
 *This section is refered to [ctag.setup](https://gist.github.com/nazgob/1570678)*.
+
 By default, **ctags** is installed on MacOS, but it does not work. For example:
+
 Open termianl, and execute the following commands
+
 `ctags -R --exclude=.git --exclude=log *`
+
 and the output is
+
 ```
 ctags: illegal option -- R
 usage: ctags [-BFadtuwvx] [-f tagsfile] file ...
