@@ -16,7 +16,9 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install ctags](#install-ctags)
 # Configure Files List
 Describe: There are some other configurations that is not mentioned in this guide. A easy way to configure is move the following configure files to the specific path.
+
 **Note: Even all configure files are provided, you should read this guide carefully.**
+
 1. `.bash_profile`: This file should under path `~/`
 2. `my_configs.vim`: This file should under path `~/.vim_runtime/`
 3. `.ycm_extra_conf.py`: This file should under path `~/.vim_runtime/my_plugins/YouCompleteMe`
