@@ -15,9 +15,9 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install vim-indent-guides Plugin](#install-vim-indent-guides-plugin)
 - [Install ctags](#install-ctags)
 # Configure Files List
-1. `**.bash_profile**`: This file should under path `~/`
-2. `**my_configs.vim**`: This file should under path `~/.vim_runtime/`
-3. `**.ycm_extra_conf.py**`: This file should under path `~/.vim_runtime/my_plugins/YouCompleteMe`
+1. `.bash_profile`: This file should under path `~/`
+2. `my_configs.vim`: This file should under path `~/.vim_runtime/`
+3. `.ycm_extra_conf.py`: This file should under path `~/.vim_runtime/my_plugins/YouCompleteMe`
 
 # Environment
 1. Macbook Pro 2018
