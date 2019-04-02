@@ -9,9 +9,11 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [Install brew](#install-brew)
     - [Install cmake](#install-cmake)
 - [Install Ultimate Vimrc](#install-ultimate-vimrc)
-- [Enable Syntax Highlight, and Set Background and Colorscheme for Vim](#enable-syntax-highlight,-and-set-background-and-colorscheme-for-vim)
+- [Enable Syntax Highlight, and Set Background and Colorscheme for Vim](#enable-syntax-highlight-,-and-set-background-and-colorscheme-for-vim)
 - [Install MacVim](#install-macvim)
 - [Install YouCompleteMe](#install-youcompleteme)
+- [Install vim-indent-guides Plugin](#install-vim-indent-guides-plugin)
+- [Install ctags](#install-ctags)
 # Configure Files List
 1. .bash_profile: This file should under path `~/`
 2. my_configs.vim: This file should under path `~/.vim_runtime/`
