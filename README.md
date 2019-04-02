@@ -29,9 +29,9 @@ This guide is to make your vim beautiful, and make it easy to use.
 2. `sh ~/.vim_runtime/install_awesome_vimrc.sh`
 
 # Enable Syntax Highlight, and Set Background and Colorscheme for Vim
-1. Generally, vim configrations are setted in **~/.vimrc** files. But, a better choice is **~/.vim_runtime/my_configs.vim** after installing **Ultimate Vimrc**.
+1. Generally, vim configurations are setted in **~/.vimrc** files. But, a better choice is **~/.vim_runtime/my_configs.vim** after installing **Ultimate Vimrc**.
 2. `vim ~/.vim_runtime/my_configs.vim`
-3. Add following configrations in **my_configs.vim**:
+3. Add following configurations in **my_configs.vim**:
    ```
    syntax enable
    set background=dark
@@ -55,13 +55,13 @@ This error has been discussed in [issue 3271](https://github.com/Valloric/YouCom
 > This is not a YCM issue, it's clearly a Vim and/or macOS issue. Using Vim or macVim from homerbew is recommended.
 1. Click [MacVim download link](https://macvim-dev.github.io/macvim/) to download MacVim;
 2. Double click **MacVim.dmg** to install **MacVim**.
-3. Add following configrations to **~/.bash_profile** to replace **vim** by **MacVim**
+3. Add following configurations to **~/.bash_profile** to replace **vim** by **MacVim**
 ```
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias vi='vim'
 ```
 4. The default editor of command `crontab` is `nano`, which would accur the same error, which is talked above. Thus, its editor should be replaced by **MacVim**, too.
-5. Add following configrations to **~/.bash_profile** to replace default editor of `crontab` by **MacVim**
+5. Add following configurations to **~/.bash_profile** to replace default editor of `crontab` by **MacVim**
 ```
 # set default editor for command `crontab -e`, if not, error accurs
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
@@ -75,12 +75,12 @@ YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for [V
 3. `git submodule update --init --recursive`
 4. `cd ~/.vim_runtime/my_plugins/YouCompleteMe`
 5. `./install.py --clang-completer`
-After installing **YouCompleteMe**, we should create **.ycm_extra_conf.py** file and configure **YouCompleteMe** in **~/.vim_runtime/my_configs.vim** to make **YouCompleteMe** works normally. By default, there is a **.ycm_extra_conf.py** file in the **YouCompleteMe** installation folder - `~/.vim_runtime/my_plugins/YouCompleteMe/`, but it is not a right configration file for C-family auto completion. Thus, we should create a new **.ycm_extra_conf.py** file for C-family auto completion. The steps are
+After installing **YouCompleteMe**, we should create **.ycm_extra_conf.py** file and configure **YouCompleteMe** in **~/.vim_runtime/my_configs.vim** to make **YouCompleteMe** works normally. By default, there is a **.ycm_extra_conf.py** file in the **YouCompleteMe** installation folder - `~/.vim_runtime/my_plugins/YouCompleteMe/`, but it is not a right configuration file for C-family auto completion. Thus, we should create a new **.ycm_extra_conf.py** file for C-family auto completion. The steps are
 1. `cd ~/.vim_runtime/my_plugins/YouCompleteMe/`
 2. `mv .ycm_extra_conf.py .ycm_extra_conf.py.default`
 3. `vim .ycm_extra_conf.py`
-4. Copy the content of [this link](https://raw.githubusercontent.com/Valloric/ycmd/66030cd94299114ae316796f3cad181cac8a007c/.ycm_extra_conf.py) to the new **.ycm_extra_conf.py** file. This configration works well for python and C-family languages, configrations for other languages please refer to [Offical Guides](https://github.com/Valloric/YouCompleteMe#c-family-semantic-completion)
-5. Add following configrations to `~/.vim_runtime/my_configs.vim` file
+4. Copy the content of [this link](https://raw.githubusercontent.com/Valloric/ycmd/66030cd94299114ae316796f3cad181cac8a007c/.ycm_extra_conf.py) to the new **.ycm_extra_conf.py** file. This configuration works well for python and C-family languages, configurations for other languages please refer to [Offical Guides](https://github.com/Valloric/YouCompleteMe#c-family-semantic-completion)
+5. Add following configurations to `~/.vim_runtime/my_configs.vim` file
 ```
 " configurations for YouCompleteMe plugin
 " disable those configurations is YouCompleteMe is not installed
@@ -109,3 +109,44 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 nnoremap <c-j> :YcmCompleter GoToDefinitionElseDeclaration<CR>"
 ```
 
+# Install **vim-indent-guides* Plugin
+[Indent Guides](https://github.com/nathanaelkane/vim-indent-guides) is a plugin for visually displaying indent levels in Vim.
+1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone git://github.com/nathanaelkane/vim-indent-guides.git`
+3. `vim ~/.vim_runtime/my_configs.vim`
+4. Add following configurations to **my_configs.vim**:
+```
+" configurations for vim-indent-guides pulgin
+let g:indent_guides_enable_on_vim_startup = 1
+set ts=4 sw=4 et
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
+```
+
+# Install **ctags**
+*This section is refered to [ctag.setup](https://gist.github.com/nazgob/1570678)*.
+By default, **ctags** is installed on MacOS, but it does not work. For example:
+Open termianl, and execute the following commands
+`ctags -R --exclude=.git --exclude=log *`
+and the output is
+```
+ctags: illegal option -- R
+usage: ctags [-BFadtuwvx] [-f tagsfile] file ...
+```
+This means, **ctags** can not work correctly. Thus, we should install new **ctags**.
+
+1. `brew install ctags`
+2. Add the following configurations into **~/.bash_profile**:
+```
+#alias ctags if you used homebrew
+$ alias ctags="`brew --prefix`/bin/ctags"
+```
+
+Now, **ctags** can be work correctly.
+
+Note:
+`ctrl+[` - go to definition
+`ctrl+T` - go back
