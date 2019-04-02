@@ -23,7 +23,7 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [ctags](#ctags)
 
 # Configure Files List
-Describe: There are some other configurations that are not mentioned in this guide. A easy way to configure is move the following configure files to the specific path.
+Describe: There are some other configurations that are not mentioned in this guide. An easy way to configure is move the following configure files to the specific path.
 
 **Note: Even all configure files are provided, you should read this guide carefully.**
 
