@@ -14,14 +14,19 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install YouCompleteMe](#install-youcompleteme)
 - [Install vim-indent-guides Plugin](#install-vim-indent-guides-plugin)
 - [Install ctags](#install-ctags)
+- [Functions](#functions)
+- [Shortcuts](#shortcuts)
+    - [NERD tree](#nerd-tree)
+
 # Configure Files List
 Describe: There are some other configurations that are not mentioned in this guide. A easy way to configure is move the following configure files to the specific path.
 
 **Note: Even all configure files are provided, you should read this guide carefully.**
 
 1. `.bash_profile`: This file should under path `~/`
-2. `my_configs.vim`: This file should under path `~/.vim_runtime/`
-3. `.ycm_extra_conf.py`: This file should under path `~/.vim_runtime/my_plugins/YouCompleteMe`
+2. `.vimrc`: This file should under path `~/`
+3. `my_configs.vim`: This file should under path `~/.vim_runtime/`
+4. `.ycm_extra_conf.py`: This file should under path `~/.vim_runtime/my_plugins/YouCompleteMe`
 
 # Environment
 1. Macbook Pro 2018
@@ -157,16 +162,39 @@ This means, **ctags** can not work correctly. Thus, we should install new **ctag
 2. Add the following configurations into **~/.bash_profile**:
 ```
 #alias ctags if you used homebrew
-$ alias ctags="`brew --prefix`/bin/ctags"
+alias ctags="`brew --prefix`/bin/ctags"
 ```
 
 Now, **ctags** can be work correctly.
 
 Note:
-`ctrl+[` - go to definition
-`ctrl+T` - go back
 
-# Other Functions and Shortcut
+`ctrl+]` - Go to definition
+
+`ctrl+T` - Go back
+
+# Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are created.
 ![Author Information Example](./images/author-information-example.png)
-2. 
+
+After modification or re-name the file, press `F4` to update modify time and file name.
+
+# Shortcuts
+Description: The leader of VIM is mapper to `,` in `~/.vim_runtime/vimrcs/basic.vim` 
+file.
+
+## VIM
+Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
+
+1. `,+m` - Fast saving
+2. `,+g` - Open Ack and put the cursor in the right position
+
+
+## NERD tree
+1. `,+nn` - Toggle NERD tree
+2. `,+nb` - NERD tree from bookmark
+3. `,+nf` - NERD tree find
+
+## ctags
+1. `Ctrl+]` - Go to definition
+2. `Ctrl+T` - Go back
