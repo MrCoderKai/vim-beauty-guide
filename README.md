@@ -165,3 +165,8 @@ Now, **ctags** can be work correctly.
 Note:
 `ctrl+[` - go to definition
 `ctrl+T` - go back
+
+# Other Functions and Shortcut
+1. Author information can be automatically added when .sh/.cpp/.c/.py files are created.
+![Author Information Example](./images/author-information-example.png)
+2. 
