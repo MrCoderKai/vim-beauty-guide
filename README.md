@@ -9,7 +9,7 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [Install brew](#install-brew)
     - [Install cmake](#install-cmake)
 - [Install Ultimate Vimrc](#install-ultimate-vimrc)
-- [Enable Syntax Highlight, and Set Background and Colorscheme for Vim](#enable-syntax-highlight-,-and-set-background-and-colorscheme-for-vim)
+- [Enable Syntax Highlight and Set Background and Colorscheme for Vim](#enable-syntax-highlight-and-set-background-and-colorscheme-for-vim)
 - [Install MacVim](#install-macvim)
 - [Install YouCompleteMe](#install-youcompleteme)
 - [Install vim-indent-guides Plugin](#install-vim-indent-guides-plugin)
@@ -39,7 +39,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 1. `git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime`
 2. `sh ~/.vim_runtime/install_awesome_vimrc.sh`
 
-# Enable Syntax Highlight, and Set Background and Colorscheme for Vim
+# Enable Syntax Highlight and Set Background and Colorscheme for Vim
 1. Generally, vim configurations are setted in **~/.vimrc** files. But, a better choice is **~/.vim_runtime/my_configs.vim** after installing **Ultimate Vimrc**.
 2. `vim ~/.vim_runtime/my_configs.vim`
 3. Add following configurations in **my_configs.vim**:
@@ -120,7 +120,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 nnoremap <c-j> :YcmCompleter GoToDefinitionElseDeclaration<CR>"
 ```
 
-# Install **vim-indent-guides* Plugin
+# Install **vim-indent-guides** Plugin
 [Indent Guides](https://github.com/nathanaelkane/vim-indent-guides) is a plugin for visually displaying indent levels in Vim.
 1. `cd ~/.vim_runtime/my_plugins`
 2. `git clone git://github.com/nathanaelkane/vim-indent-guides.git`
