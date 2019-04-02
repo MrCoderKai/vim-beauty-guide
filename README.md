@@ -1,6 +1,8 @@
 # vim-beauty-guide
 This guide is to make your vim beautiful, and make it easy to use.
 
+**The guide to make your bash beautiful, please refer to [bash-beauty-guide](https://github.com/MrCoderKai/bash-beauty-guide).**
+
 # Contents
 - [Configure Files List](#configure-files-list)
 - [Environment](#environment)
