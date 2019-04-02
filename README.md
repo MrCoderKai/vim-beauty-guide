@@ -3,6 +3,15 @@ This guide is to make your vim beautiful, and make it easy to use.
 
 # Contents
 - [Configure Files List](#configure-files-list)
+- [Environment](#environment)
+- [Install and Customize iTerm2](#install-and-customize-iterm2)
+- [Install Basic Tools](#install-basic-tools)
+    - [Install brew](#install-brew)
+    - [Install cmake](#install-cmake)
+- [Install Ultimate Vimrc](#install-ultimate-vimrc)
+- [Enable Syntax Highlight, and Set Background and Colorscheme for Vim](#enable-syntax-highlight,-and-set-background-and-colorscheme-for-vim)
+- [Install MacVim](#install-macvim)
+- [Install YouCompleteMe](#install-youcompleteme)
 # Configure Files List
 1. .bash_profile: This file should under path `~/`
 2. my_configs.vim: This file should under path `~/.vim_runtime/`
