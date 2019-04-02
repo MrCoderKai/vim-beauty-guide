@@ -2,7 +2,7 @@
 This guide is to make your vim beautiful, and make it easy to use.
 
 # Contents
-
+- [Configure Files List](#configure-files-list)
 # Configure Files List
 1. .bash_profile: This file should under path `~/`
 2. my_configs.vim: This file should under path `~/.vim_runtime/`
