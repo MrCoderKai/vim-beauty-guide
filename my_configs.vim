@@ -53,7 +53,7 @@ set textwidth=0
 set colorcolumn=81
 " auto wrap line when characters number is bigger than `textwidth``
 " set code fold method
-set foldmethod=syntax
+set foldmethod=indent
 " disable code fold status at vim startup
 set foldlevelstart=99
 " Quicker window movement
@@ -80,6 +80,54 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
+
+" SOME CONFIGURATIONS FOR NERDTREE PLUGIN
+" Open a NERDTree automatically when vim starts up
+autocmd vimenter * NERDTree
+" Go to previous (last accessed) window
+autocmd VimEnter * wincmd p
+" Open a NERDTree automatically when vim starts up if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+
+
+" SOME CONFIGURATIONS FOR VIM_GUTENTAGA PLUGIN
+" gutentags will stop recursively find project marker when found thoese files
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
+" the name of tag files
+let g:gutentags_ctags_tagfile = '.tags'
+" Put all tags files to ~/.cache/tags folder automatically
+let s:vim_tags = expand('~/.cache/tags')
+" create path ~/.cache/tags when detecting this path does not exist
+let g:gutentags_cache_dir = s:vim_tags
+if !isdirectory(s:vim_tags)
+    silent! call mkdir(s:vim_tags, 'p')
+endif
+" Other ctags parameters
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
 
 " configurations for YouCompleteMe plugin
 " disable those configurations is YouCompleteMe is not installed
@@ -119,8 +167,8 @@ func SetTitle()
 	if &filetype == 'sh' || &filetype == 'python'
 		call setline(1, "##########################################################################")
 		call append(line("."), "# File Name: ".expand("%"))
-		call append(line(".")+1, "# Author: author")
-		call append(line(".")+2, "# E-mail: author@163.com")
+		call append(line(".")+1, "# Author: chengkai")
+		call append(line(".")+2, "# E-mail: chengkaiupc@163.com")
 		call append(line(".")+3, "# Created Time: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+4, "# Last Modified: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+5, "# Description: ")
@@ -133,8 +181,8 @@ func SetTitle()
 	else
 		call setline(1, "/*************************************************************************")
 		call append(line("."),    "    > File Name: ".expand("%"))
-		call append(line(".")+1,  "    > Author: author")
-		call append(line(".")+2,  "    > E-mail: author@163.com")
+		call append(line(".")+1,  "    > Author: chengkai")
+		call append(line(".")+2,  "    > E-mail: chengkaiupc@163.com")
 		call append(line(".")+3,  "    > Created Time: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+4,  "    > Last Modified: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+5,  "    > Description: ")
