@@ -81,6 +81,36 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 
+
+" SOME CONFIGURATION FOR TAGBAR
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+" set the width of tagbar
+let g:tagbar_width=30
+" set tagbar window is on the left (right default)
+let g:tagbar_left=1
+" focus on tagbar window when starts (file that vim opened default)
+" let g:tagbar_left=1
+" auto open tagbar when opening Vim with a supported file/files
+autocmd VimEnter * nested :call tagbar#autoopen(1)
+" use multiple tabs and want Tagbar to also open in the current tab
+" when you switch to an already loaded, supported buffer
+autocmd BufEnter * nested :call tagbar#autoopen(0)
+" enable auto preview (label moves while curosr moves)
+let g:tagbar_autopreview=1
+" disable sort tags
+let g:tagbar_sort=0
+map <F9> :TagbarToggle<CR>
+
+" SOME CONFIGURATIONS FOR TAGLISTS
+" let g:Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+" let g:Tlist_Show_One_File = 1
+" let g:Tlist_Exit_OnlyWindow = 1
+" Open taglist when starts vim
+" let Tlist_Auto_Open = 1
+" set taglists window width
+" let Tlist_WinWidth = 30
+" map <silent> <F9> :TlistToggle<cr>
+
 " SOME CONFIGURATIONS FOR NERDTREE PLUGIN
 " Open a NERDTree automatically when vim starts up
 autocmd vimenter * NERDTree
@@ -111,7 +141,7 @@ call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 
-" SOME CONFIGURATIONS FOR VIM_GUTENTAGA PLUGIN
+" SOME CONFIGURATIONS FOR VIM_GUTENTAGS PLUGIN
 " gutentags will stop recursively find project marker when found thoese files
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
 " the name of tag files

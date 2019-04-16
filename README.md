@@ -17,6 +17,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install vim-indent-guides Plugin](#install-vim-indent-guides-plugin)
 - [Install ctags](#install-ctags)
 - [Install vim-gutentags Plugin](#install-vim-gutentags-plugin)
+- [Install tagbar Plugin](#install-tagbar-plugin)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
 -   - [Vim](#vim)
@@ -221,6 +222,37 @@ let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 This section refers to [this article](https://www.cnblogs.com/pengdonglin137/articles/10202606.html).
 
+# Install tagbar Plugin
+[Tagbar](https://github.com/majutsushi/tagbar) is a Vim plugin that provides an easy way to browse the tags of the current file and get an overview of its structure.
+
+The step for tagbar plugin installation is as follows:
+1. `cd ~/.vim_runtime/my_plugins/`
+2. `git clone https://github.com/majutsushi/tagbar.git`
+3. Add the following configuration into `~/.vim_runtime/my_configs.vim`
+```
+" SOME CONFIGURATION FOR TAGBAR
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+" set the width of tagbar
+let g:tagbar_width=30
+" set tagbar window is on the left (right default)
+let g:tagbar_left=1
+" focus on tagbar window when starts (file that vim opened default)
+" let g:tagbar_left=1
+" auto open tagbar when opening Vim with a supported file/files
+autocmd VimEnter * nested :call tagbar#autoopen(1)
+" use multiple tabs and want Tagbar to also open in the current tab
+" when you switch to an already loaded, supported buffer
+autocmd BufEnter * nested :call tagbar#autoopen(0)
+" enable auto preview (label moves while curosr moves)
+let g:tagbar_autopreview=1
+" disable sort tags
+let g:tagbar_sort=0
+map <F9> :TagbarToggle<CR>
+```
+
+Then, `tagbar` will automatically open when open Vim to edit supported file/files.
+
+Press `<F9>` to toggle `tagbar` window.
 
 # Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are created.
