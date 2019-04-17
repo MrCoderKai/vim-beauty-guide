@@ -99,7 +99,7 @@ autocmd BufEnter * nested :call tagbar#autoopen(0)
 let g:tagbar_autopreview=1
 " disable sort tags
 let g:tagbar_sort=0
-map <F9> :TagbarToggle<CR>
+map <silent> <F9> :TagbarToggle<CR>
 
 " SOME CONFIGURATIONS FOR TAGLISTS
 " let g:Tlist_Ctags_Cmd = '/usr/local/bin/ctags'

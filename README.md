@@ -4,6 +4,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 **The guide to make your bash beautiful, please refer to [bash-beauty-guide](https://github.com/MrCoderKai/bash-beauty-guide).**
 
 # Contents
+- [Screenshots](#screenshots)
 - [Configure Files List](#configure-files-list)
 - [Environment](#environment)
 - [Install and Customize iTerm2](#install-and-customize-iterm2)
@@ -28,6 +29,11 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [Most Recently Used Files](#most-recently-used-files)
     - [Quick Comment and Uncomment](#quick-comment-and-uncomment)
     - [cscope](#cscope)
+
+# Screenshots
+![Vim with `tagbar` and `NERDTree`](./images/vim_screenshot.png)
+
+![Vim with `cscope`](./images/cscope.png)
 
 # Configure Files List
 Describe: There are some other configurations that are not mentioned in this guide. An easy way to configure is move the following configure files to the specific path.
