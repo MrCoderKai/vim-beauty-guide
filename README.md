@@ -18,6 +18,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install ctags](#install-ctags)
 - [Install vim-gutentags Plugin](#install-vim-gutentags-plugin)
 - [Install tagbar Plugin](#install-tagbar-plugin)
+- [Install cscope](#install-cscope)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
 -   - [Vim](#vim)
@@ -25,6 +26,8 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [ctags](#ctags)
     - [Code Folder](#code-folder)
     - [Most Recently Used Files](#most-recently-used-files)
+    - [Quick Comment and Uncomment](#quick-comment-and-uncomment)
+    - [cscope](#cscope)
 
 # Configure Files List
 Describe: There are some other configurations that are not mentioned in this guide. An easy way to configure is move the following configure files to the specific path.
@@ -255,6 +258,40 @@ Then, `tagbar` will automatically open when open Vim to edit supported file/file
 
 Press `<F9>` to toggle `tagbar` window.
 
+# Install cscope
+[Cscope](http://cscope.sourceforge.net/) is a developer's tool for browsing source code. It has the following features:
+* Allows searching code for:
+    * all references to a symbol
+    * global definitions
+    * functions called by a function
+    * functions calling a function
+    * text string
+    * regular expression pattern
+    * a file
+    * files including a file
+* Curses based (text screen)
+* An information database is generated for faster searches and later reference
+* The fuzzy parser supports C, but is flexible enough to be useful for C++ and Java, and for use as a generalized 'grep database' (use it to browse large text documents!)
+* Has a command line mode for inclusion in scripts or as a backend to a GUI/frontend
+Runs on all flavors of Unix, plus most monopoly-controlled operating systems.
+
+The guide to install `cscope`:
+
+1. Download `cscope` source code from [DOWNLOAD LINK](https://sourceforge.net/projects/cscope/files/)
+2. Change directory to the folder where you save the downloaded `cscope` source code
+3. `./configure`
+4. `make`
+5. `make install`
+6. `cd ~/.vim_runtime/my_plugins`
+7. `mkdir -p cscope/plugin`
+8. `cd cscope/plugin`
+9. `wget http://cscope.sourceforge.net/cscope_maps.vim`
+Note: If `wget` is not installed in your MacOS, you can use `brew intall wget` to install.
+
+Now, `cscope` is completely installed in your OS.
+
+Click The [Vim/Cscope Tutorial](http://cscope.sourceforge.net/cscope_vim_tutorial.html) to get official cscope tutorial.
+
 # Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are created.
 ![Author Information Example](./images/author-information-example.png)
@@ -290,6 +327,14 @@ Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 ## Most Recently Used Files
 1. `,+f` - Open most recently used files list
 
-## Quick (Un)-Comment
+## Quick Comment and Uncomment
 1. `gc` -  (Un)-Comment out a line (takes a count)
 2. `gcap` - (Un)-Comment out A Paragraph
+
+## cscope
+1. `Ctrl+\+s` - Open a menu at the bottom of your Vim window showing you all the
+uses of the symbol, which the curosr, is over in the program.
+2. `Ctrl+t` - Jump back to your original location before the search (and you can
+nest searches and `Ctrl+t` will unwind them one at a time).
+
+**Mnemonic: the `\` key is right next to the `]` key, which is used for ctags searches.**
