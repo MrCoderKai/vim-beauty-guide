@@ -24,6 +24,7 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [NERD tree](#nerd-tree)
     - [ctags](#ctags)
     - [Code Folder](#code-folder)
+    - [Most Recently Used Files](#most-recently-used-files)
 
 # Configure Files List
 Describe: There are some other configurations that are not mentioned in this guide. An easy way to configure is move the following configure files to the specific path.
@@ -285,3 +286,10 @@ Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 2. `zO` - Open all code folders
 3. `zc` - Close code folder
 4. `zC` - Close all code folders
+
+## Most Recently Used Files
+1. `,+f` - Open most recently used files list
+
+## Quick (Un)-Comment
+1. `gc` -  (Un)-Comment out a line (takes a count)
+2. `gcap` - (Un)-Comment out A Paragraph
