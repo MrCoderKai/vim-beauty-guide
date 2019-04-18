@@ -20,6 +20,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install vim-gutentags Plugin](#install-vim-gutentags-plugin)
 - [Install tagbar Plugin](#install-tagbar-plugin)
 - [Install cscope](#install-cscope)
+- [Install vim-airline](#install-vim-airline)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
 -   - [Vim](#vim)
@@ -298,6 +299,36 @@ Now, `cscope` is completely installed in your OS.
 
 Click The [Vim/Cscope Tutorial](http://cscope.sourceforge.net/cscope_vim_tutorial.html) to get official cscope tutorial.
 
+# Install vim-airline
+By default, [ultimate vimrc](https://github.com/amix/vimrc) github repository provides `lightline` plugin to 
+beauty vim status line. But I think it isn't beautiful enough. So I uninstall `lightline` plugin and install 
+`vim-airline` plugin instead. This guide is as follows:
+1. Uninstall `lightline` plugin
+```
+cd ~/.vim_runtime/
+mkdir sources_deprecated
+mv sources_non_forked/lightline* sources_deprecated
+```
+2. Install `vim-airline`
+```
+cd ~/.vim_runtime/my_plugins
+git clone https://github.com/vim-airline/vim-airline.git
+```
+3. Add the following configuraitons in `~/.vim_runtime/my_configs.vim`
+```
+" SOME CONFIGURATIONS FOR VIM_AIRLINE
+set t_Co=256
+set laststatus=2
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = '>'
+let g:airline#extensions#tabline#right_sep = '<'
+let g:airline#extensions#tabline#left_alt_sep = ' '
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_exclude_filetypes=['netrw', 'diff', 'undotree', 'gundo', 'tagbar']
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+```
 # Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are created.
 ![Author Information Example](./images/author-information-example.png)

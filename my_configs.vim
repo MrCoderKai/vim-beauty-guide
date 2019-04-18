@@ -82,6 +82,19 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 
 
+" SOME CONFIGURATIONS FOR VIM_AIRLINE
+set t_Co=256
+set laststatus=2
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = '>'
+let g:airline#extensions#tabline#right_sep = '<'
+let g:airline#extensions#tabline#left_alt_sep = ' '
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_exclude_filetypes=['netrw', 'diff', 'undotree', 'gundo', 'tagbar']
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+
 " SOME CONFIGURATION FOR TAGBAR
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 " set the width of tagbar
@@ -110,6 +123,8 @@ map <silent> <F9> :TagbarToggle<CR>
 " set taglists window width
 " let Tlist_WinWidth = 30
 " map <silent> <F9> :TlistToggle<cr>
+
+
 
 " SOME CONFIGURATIONS FOR NERDTREE PLUGIN
 " Open a NERDTree automatically when vim starts up
