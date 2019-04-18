@@ -556,7 +556,7 @@ seems underfilled in Vim land. (As opposed to HTML/XML inserting, for which many
 plugins are available). Adding, changing, and removing pairs of tags 
 simultaneously is a breeze.
 
-# NERD Commenter
+## NERD Commenter
 The following key mappings are provided by default (there is also a menu 
 provided that contains menu items corresponding to all the below mappings):
 
