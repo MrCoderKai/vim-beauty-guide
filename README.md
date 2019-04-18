@@ -25,6 +25,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install vim-multiple-cursors](#install-vim-multiple-cursors-plugin)
 - [Install surround Plugin](#install-surround-plugin)
 - [Install nerdtree-git-plugin](#install-nerdtree-git-plugin)
+- [Install NERD Commenter Plugin](#install-nerd-commenter-plugin)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
     - [Vim](#vim)
@@ -35,6 +36,7 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [Quick Comment and Uncomment](#quick-comment-and-uncomment)
     - [cscope](#cscope)
     - [surround](#surround)
+    - [NERD Commenter](#nerd-commenter)
 
 # Screenshots
 ![Vim with `tagbar` and `NERDTree`](./images/vim_screenshot.png)
@@ -415,6 +417,33 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 ```
 
+# Install NERD Commenter Plugin
+[NERD Commenter](https://github.com/scrooloose/nerdcommenter) is a plugin that
+can comment functions so powerful—no comment necessary.
+
+The guide to insall `NERD Commenter` plugin is as follows:
+1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone https://github.com/scrooloose/nerdcommenter`
+3. Add following configurations in `~/.vim_runtime/my_configs.vim`
+```
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+```
+
 # Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are 
 created.
@@ -514,12 +543,80 @@ Emphasize hello: `ysiw<em>`
 ```
 <em>Hello</em> world!
 ```
-Finally, let's try out visual mode. Press a capital V (for linewise visual mode) followed by `S<p class="important">`.
+Finally, let's try out visual mode. Press a capital V (for linewise visual mode) 
+followed by `S<p class="important">`.
 ```
 <p class="important">
   <em>Hello</em> world!
 </p>
 ```
 
-This plugin is very powerful for HTML and XML editing, a niche which currently seems underfilled in Vim land. (As opposed to HTML/XML inserting, for which many plugins are available). Adding, changing, and removing pairs of tags simultaneously is a breeze.
+This plugin is very powerful for HTML and XML editing, a niche which currently 
+seems underfilled in Vim land. (As opposed to HTML/XML inserting, for which many 
+plugins are available). Adding, changing, and removing pairs of tags 
+simultaneously is a breeze.
+
+# NERD Commenter
+The following key mappings are provided by default (there is also a menu 
+provided that contains menu items corresponding to all the below mappings):
+
+Most of the following mappings are for normal/visual mode only. 
+The **|NERDComInsertComment|** mapping is for insert mode only.
+
+1. `[count]<leader>cc` **|NERDComComment|**
+
+Comment out the current line or text selected in visual mode.
+
+2. `[count]<leader>cn` **|NERDComNestedComment|**
+
+Same as `cc` but forces nesting.
+
+3. `[count]<leader>c<space>` **|NERDComToggleComment|**
+
+Toggles the comment state of the selected line(s). If the topmost selected line 
+is commented, all selected lines are uncommented and vice versa.
+
+4. `[count]<leader>cm` **|NERDComMinimalComment|**
+
+Comments the given lines using only one set of multipart delimiters.
+
+5. `[count]<leader>ci` **|NERDComInvertComment|**
+
+Toggles the comment state of the selected line(s) individually.
+
+6. `[count]<leader>cs` **|NERDComSexyComment|**
+
+Comments out the selected lines with a pretty block formatted layout.
+
+7. `[count]<leader>cy` **|NERDComYankComment|**
+
+Same as `cc` except that the commented line(s) are yanked first.
+
+8. `<leader>c$` **|NERDComEOLComment|**
+
+Comments the current line from the cursor to the end of line.
+
+9. `<leader>cA` **|NERDComAppendComment|**
+
+Adds comment delimiters to the end of line and goes into insert mode between them.
+
+10. **|NERDComInsertComment|**
+
+Adds comment delimiters at the current cursor position and inserts between. 
+Disabled by default.
+
+11. `<leader>ca` **|NERDComAltDelim|**
+
+Switches to the alternative set of delimiters.
+
+12. `[count]<leader>cl`
+
+`[count]<leader>cb` **|NERDComAlignedComment|**
+
+Same as **|NERDComComment|** except that the delimiters are aligned down the 
+left side (`<leader>cl`) or both sides (`<leader>cb`).
+
+13. `[count]<leader>cu` **|NERDComUncommentLine|**
+
+Uncomments the selected line(s).
 
