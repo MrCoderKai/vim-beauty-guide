@@ -396,8 +396,10 @@ Description: The leader of VIM is mapper to `,` in
 ## VIM
 Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 
-1. `,+m` - Fast saving
+1. `,+w` - Fast saving
 2. `,+g` - Open Ack and put the cursor in the right position
+3. `"+p` - Paste system clipboard
+4. `"*p` - Paste system buffer
 
 
 ## NERD tree
