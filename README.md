@@ -21,6 +21,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install tagbar Plugin](#install-tagbar-plugin)
 - [Install cscope](#install-cscope)
 - [Install vim-airline](#install-vim-airline)
+- [Install vim-gitgutter](#install-vim-gitgutter)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
 -   - [Vim](#vim)
@@ -329,6 +330,15 @@ let g:airline_exclude_filetypes=['netrw', 'diff', 'undotree', 'gundo', 'tagbar']
 let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
 ```
+
+# Install vim-gitgutter
+[Vim-gitgutter](https://github.com/airblade/vim-gitgutter) is a Vim plugin which shows a git diff in the 'gutter' (sign column). It shows which lines have been added, modified, or removed. You can also preview, stage, and undo individual hunks. The plugin also provides a hunk text object.
+
+The guide to install `vim-gitgutter` is as follows:
+
+1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone git://github.com/airblade/vim-gitgutter.git`
+
 # Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are created.
 ![Author Information Example](./images/author-information-example.png)
