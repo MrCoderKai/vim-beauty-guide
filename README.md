@@ -410,6 +410,8 @@ Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 2. `,+g` - Open Ack and put the cursor in the right position
 3. `"+p` - Paste system clipboard
 4. `"*p` - Paste system buffer
+5. `f+character` - Find the specific `character` **f**orward
+6. `F+character` - Find the specific `character` backward
 
 
 ## NERD tree
@@ -448,7 +450,7 @@ It's easiest to explain with examples.
 
 In **NORMAL** mode:
 
-Press `cs"'` **WHEN cursor is on `"` charactor**
+Press `cs"'` **WHEN cursor is on `"` character**
 ```
 "Hello world!"
 ```
