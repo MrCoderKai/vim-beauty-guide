@@ -20,9 +20,10 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install vim-gutentags Plugin](#install-vim-gutentags-plugin)
 - [Install tagbar Plugin](#install-tagbar-plugin)
 - [Install cscope](#install-cscope)
-- [Install vim airline](#install-vim-airline)
-- [Install vim gitgutter](#install-vim-gitgutter)
-- [Install vim multiple cursors](#install-vim-multiple-cursors)
+- [Install vim-airline Plugin](#install-vim-airline-plugin)
+- [Install vim-gitgutter Plugin](#install-vim-gitgutter-plugin)
+- [Install vim-multiple-cursors](#install-vim-multiple-cursors-plugin)
+- [Install surround Plugin](#install-surround-plugin)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
     - [Vim](#vim)
@@ -32,6 +33,7 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [Most Recently Used Files](#most-recently-used-files)
     - [Quick Comment and Uncomment](#quick-comment-and-uncomment)
     - [cscope](#cscope)
+    - [surround](#surround)
 
 # Screenshots
 ![Vim with `tagbar` and `NERDTree`](./images/vim_screenshot.png)
@@ -301,7 +303,7 @@ Now, `cscope` is completely installed in your OS.
 
 Click The [Vim/Cscope Tutorial](http://cscope.sourceforge.net/cscope_vim_tutorial.html) to get official cscope tutorial.
 
-# Install vim airline
+# Install vim-airline Plugin
 By default, [ultimate vimrc](https://github.com/amix/vimrc) github repository provides `lightline` plugin to 
 beauty vim status line. But I think it isn't beautiful enough. So I uninstall `lightline` plugin and install 
 `vim-airline` plugin instead. This guide is as follows:
@@ -332,7 +334,7 @@ let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
 ```
 
-# Install vim gitgutter
+# Install vim-gitgutter Plugin
 [Vim-gitgutter](https://github.com/airblade/vim-gitgutter) is a Vim plugin which
 shows a git diff in the 'gutter' (sign column). It shows which lines have been 
 added, modified, or removed. You can also preview, stage, and undo individual 
@@ -353,7 +355,7 @@ let g:gitgutter_signs = 1
 let g:gitgutter_async = 0
 ```
 
-# Install vim multiple cursors
+# Install vim-multiple-cursors Plugin
 [Vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors) is a vim 
 plugin that attempts at bringing Sublime Text's awesome multiple selection 
 feature into Vim.
@@ -380,6 +382,14 @@ let g:multi_cursor_quit_key            = '<Esc>'
 **Note: This plugin should be used in *Normal* mode at start.**
 
 More usage examples can be found in [Keystrokes for example gifs](https://github.com/terryma/vim-multiple-cursors/wiki/Keystrokes-for-example-gifs).
+
+# Install surround Plugin
+[Surround](https://github.com/tpope/vim-surround) is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
+
+The guid to install `surround` Plugin is as follows:
+
+1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone https://github.com/tpope/vim-surround.git`
 
 # Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are 
@@ -432,3 +442,58 @@ nest searches and `Ctrl+t` will unwind them one at a time).
 
 **Mnemonic: the `\` key is right next to the `]` key, which is used for ctags 
 searches.**
+
+## surround
+It's easiest to explain with examples.
+
+In **NORMAL** mode:
+
+Press `cs"'` **WHEN cursor is on `"` charactor**
+```
+"Hello world!"
+```
+to change it into
+```
+'Hello world!'
+```
+Now press `cs'<q>` to change it to
+```
+<q>Hello world!</q>
+```
+To go full circle, press `cst"` to get
+```
+"Hello world!"
+```
+To remove the delimiters entirely, press `ds"`
+```
+Hello world!
+```
+Now with the cursor on "Hello", press `ysiw]` (`iw` is a text object).
+```
+[Hello] world!
+```
+Let's make that braces and add some space (use `}` instead of `{` for no space): `cs]{`
+```
+{ Hello } world!
+```
+Now wrap the entire line in parentheses with `yssb` or `yss)`.
+```
+({ Hello } world!)
+```
+Revert to the original text: `ds{ds)`
+```
+Hello world!
+```
+Emphasize hello: `ysiw<em>`
+```
+<em>Hello</em> world!
+```
+Finally, let's try out visual mode. Press a capital V (for linewise visual mode) followed by `S<p class="important">`.
+```
+<p class="important">
+  <em>Hello</em> world!
+</p>
+```
+
+This plugin is very powerful for HTML and XML editing, a niche which currently seems underfilled in Vim land. (As opposed to HTML/XML inserting, for which many plugins are available). Adding, changing, and removing pairs of tags simultaneously is a breeze.
+
