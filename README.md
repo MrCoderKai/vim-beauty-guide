@@ -24,6 +24,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install vim-gitgutter Plugin](#install-vim-gitgutter-plugin)
 - [Install vim-multiple-cursors](#install-vim-multiple-cursors-plugin)
 - [Install surround Plugin](#install-surround-plugin)
+- [Install nerdtree-git-plugin](#install-nerdtree-git-plugin)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
     - [Vim](#vim)
@@ -386,10 +387,33 @@ More usage examples can be found in [Keystrokes for example gifs](https://github
 # Install surround Plugin
 [Surround](https://github.com/tpope/vim-surround) is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
 
-The guid to install `surround` Plugin is as follows:
+The guide to install `surround` Plugin is as follows:
 
 1. `cd ~/.vim_runtime/my_plugins`
 2. `git clone https://github.com/tpope/vim-surround.git`
+
+# Install nerdtree-git-plugin
+[Nerdtree-git-plugin](#https://github.com/Xuyuanp/nerdtree-git-plugin) is a 
+plugin showing git status flags. Works with the LATEST version of NERDTree.
+
+The guide to install `nerdtree-git-plugin` is as follows:
+1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone https://github.com/Xuyuanp/nerdtree-git-plugin.git`
+3. Add following configurations in `~/.vim_runtime/my_configs.vim`
+```
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+```
 
 # Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are 
