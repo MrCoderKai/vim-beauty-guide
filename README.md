@@ -20,8 +20,8 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install vim-gutentags Plugin](#install-vim-gutentags-plugin)
 - [Install tagbar Plugin](#install-tagbar-plugin)
 - [Install cscope](#install-cscope)
-- [Install vim-airline](#install-vim-airline)
-- [Install vim-gitgutter](#install-vim-gitgutter)
+- [Install vim airline](#install-vim-airline)
+- [Install vim gitgutter](#install-vim-gitgutter)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
 -   - [Vim](#vim)
@@ -300,7 +300,7 @@ Now, `cscope` is completely installed in your OS.
 
 Click The [Vim/Cscope Tutorial](http://cscope.sourceforge.net/cscope_vim_tutorial.html) to get official cscope tutorial.
 
-# Install vim-airline
+# Install vim airline
 By default, [ultimate vimrc](https://github.com/amix/vimrc) github repository provides `lightline` plugin to 
 beauty vim status line. But I think it isn't beautiful enough. So I uninstall `lightline` plugin and install 
 `vim-airline` plugin instead. This guide is as follows:
@@ -331,7 +331,7 @@ let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
 ```
 
-# Install vim-gitgutter
+# Install vim gitgutter
 [Vim-gitgutter](https://github.com/airblade/vim-gitgutter) is a Vim plugin which shows a git diff in the 'gutter' (sign column). It shows which lines have been added, modified, or removed. You can also preview, stage, and undo individual hunks. The plugin also provides a hunk text object.
 
 The guide to install `vim-gitgutter` is as follows:
