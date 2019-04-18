@@ -25,7 +25,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install vim multiple cursors](#install-vim-multiple-cursors)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
--   - [Vim](#vim)
+    - [Vim](#vim)
     - [NERD tree](#nerd-tree)
     - [ctags](#ctags)
     - [Code Folder](#code-folder)
