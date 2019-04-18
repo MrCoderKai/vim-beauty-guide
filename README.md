@@ -22,6 +22,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install cscope](#install-cscope)
 - [Install vim airline](#install-vim-airline)
 - [Install vim gitgutter](#install-vim-gitgutter)
+- [Install vim multiple cursors](#install-vim-multiple-cursors)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
 -   - [Vim](#vim)
@@ -332,22 +333,65 @@ let g:airline_solarized_bg='dark'
 ```
 
 # Install vim gitgutter
-[Vim-gitgutter](https://github.com/airblade/vim-gitgutter) is a Vim plugin which shows a git diff in the 'gutter' (sign column). It shows which lines have been added, modified, or removed. You can also preview, stage, and undo individual hunks. The plugin also provides a hunk text object.
+[Vim-gitgutter](https://github.com/airblade/vim-gitgutter) is a Vim plugin which
+shows a git diff in the 'gutter' (sign column). It shows which lines have been 
+added, modified, or removed. You can also preview, stage, and undo individual 
+hunks. The plugin also provides a hunk text object.
 
 The guide to install `vim-gitgutter` is as follows:
 
 1. `cd ~/.vim_runtime/my_plugins`
 2. `git clone git://github.com/airblade/vim-gitgutter.git`
+3. Add following configuration in `~/.vim_runtime/my_configs.vim`
+```
+" SOME CONFIGURATIONS FOR VIM-GITGUTTER
+" Turn on gitgutter by default
+let g:gitgutter_enabled = 1
+" Turn on signs by default
+let g:gitgutter_signs = 1
+" Run diffs synchronously: 0, asynchronously: 1
+let g:gitgutter_async = 0
+```
+
+# Install vim multiple cursors
+[Vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors) is a vim 
+plugin that attempts at bringing Sublime Text's awesome multiple selection 
+feature into Vim.
+
+The guid to install `vim-multiple-cursors` is as follows:
+
+1. `cd ~/.vim_runtime/my_plugins/`
+2. `git clone https://github.com/terryma/vim-multiple-cursors.git`
+3. Add following configurations in `~/.vim_runtime/my_configs.vim`
+```
+" SOME CONFIGURATION FOR VIM-MULTIPLE-CURSORS
+let g:multi_cursor_use_default_mapping=0
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-n>'
+let g:multi_cursor_select_all_word_key = '<A-n>'
+let g:multi_cursor_start_key           = 'g<C-n>'
+let g:multi_cursor_select_all_key      = 'g<A-n>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
+```
+
+**Note: This plugin should be used in *Normal* mode at start.**
+
+More usage examples can be found in [Keystrokes for example gifs](https://github.com/terryma/vim-multiple-cursors/wiki/Keystrokes-for-example-gifs).
 
 # Functions
-1. Author information can be automatically added when .sh/.cpp/.c/.py files are created.
+1. Author information can be automatically added when .sh/.cpp/.c/.py files are 
+created.
 ![Author Information Example](./images/author-information-example.png)
 
-After modification or re-name the file, press `F4` to update modify time and file name.
+After modification or re-name the file, press `F4` to update modify time and 
+file name.
 
 # Shortcuts
-Description: The leader of VIM is mapper to `,` in `~/.vim_runtime/vimrcs/basic.vim` 
-file.
+Description: The leader of VIM is mapper to `,` in 
+`~/.vim_runtime/vimrcs/basic.vim` file.
 
 ## VIM
 Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
@@ -384,4 +428,5 @@ uses of the symbol, which the curosr, is over in the program.
 2. `Ctrl+t` - Jump back to your original location before the search (and you can
 nest searches and `Ctrl+t` will unwind them one at a time).
 
-**Mnemonic: the `\` key is right next to the `]` key, which is used for ctags searches.**
+**Mnemonic: the `\` key is right next to the `]` key, which is used for ctags 
+searches.**

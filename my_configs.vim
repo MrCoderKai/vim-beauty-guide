@@ -95,6 +95,27 @@ let g:airline_exclude_filetypes=['netrw', 'diff', 'undotree', 'gundo', 'tagbar']
 let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
 
+" SOME CONFIGURATIONS FOR VIM-GITGUTTER
+" Turn on gitgutter by default
+let g:gitgutter_enabled = 1
+" Turn on signs by default
+let g:gitgutter_signs = 1
+" Run diffs synchronously: 0, asynchronously: 1
+let g:gitgutter_async = 0
+
+
+" SOME CONFIGURATION FOR VIM-MULTIPLE-CURSORS
+let g:multi_cursor_use_default_mapping=0
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-n>'
+let g:multi_cursor_select_all_word_key = '<A-n>'
+let g:multi_cursor_start_key           = 'g<C-n>'
+let g:multi_cursor_select_all_key      = 'g<A-n>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
+
 " SOME CONFIGURATION FOR TAGBAR
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 " set the width of tagbar
