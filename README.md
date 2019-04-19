@@ -36,6 +36,8 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [cscope](#cscope)
     - [surround](#surround)
     - [NERD Commenter](#nerd-commenter)
+    - [Tabular](#tabular)
+    - [repeat](#repeat)
 
 # Screenshots
 ![Vim with `tagbar` and `NERDTree`](./images/vim_screenshot.png)
@@ -337,15 +339,15 @@ let g:airline_solarized_bg='dark'
 ```
 
 # Install vim-gitgutter Plugin
-[Vim-gitgutter](https://github.com/airblade/vim-gitgutter) is a Vim plugin which
-shows a git diff in the 'gutter' (sign column). It shows which lines have been 
-added, modified, or removed. You can also preview, stage, and undo individual 
-hunks. The plugin also provides a hunk text object.
+~~[Vim-gitgutter](https://github.com/airblade/vim-gitgutter) is a Vim plugin 
+which shows a git diff in the 'gutter' (sign column). It shows which lines 
+have been added, modified, or removed. You can also preview, stage, and undo 
+individual hunks. The plugin also provides a hunk text object.
 
 The guide to install `vim-gitgutter` is as follows:
 
 1. `cd ~/.vim_runtime/my_plugins`
-2. `git clone git://github.com/airblade/vim-gitgutter.git`
+2. `git clone git://github.com/airblade/vim-gitgutter.git`~~
 3. Add following configuration in `~/.vim_runtime/my_configs.vim`
 ```
 " SOME CONFIGURATIONS FOR VIM-GITGUTTER
@@ -450,12 +452,13 @@ Description: The leader of VIM is mapper to `,` in
 ## VIM
 Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 
-1. `,+w` - Fast saving
-2. `,+g` - Open Ack and put the cursor in the right position
-3. `"+p` - Paste system clipboard
-4. `"*p` - Paste system buffer
+1. `,+w`         - Fast saving
+2. `,+g`         - Open Ack and put the cursor in the right position
+3. `"+p`         - Paste system clipboard
+4. `"*p`         - Paste system buffer
 5. `f+character` - Find the specific `character` **f**orward
 6. `F+character` - Find the specific `character` backward
+7. `vi}`         - enable Visual mode, and select inner Brace
 
 
 ## NERD tree
@@ -477,8 +480,8 @@ Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 1. `,+f` - Open most recently used files list
 
 ## Quick Comment and Uncomment
-1. `gc` -  (Un)-Comment out a line (takes a count)
-2. `gcap` - (Un)-Comment out A Paragraph
+1. `gc`   - (Un) - Comment out a line (takes a count)
+2. `gcap` - (Un) - Comment out A Paragraph
 
 ## cscope
 1. `Ctrl+\+s` - Open a menu at the bottom of your Vim window showing you all the
@@ -611,3 +614,12 @@ left side (`<leader>cl`) or both sides (`<leader>cb`).
 
 Uncomments the selected line(s).
 
+## Tabular
+1. `:Tabularize /,` - Line these lines at the commas.
+
+`Tabular` tutorial can be found [here](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/).
+
+`Tabular` document can be found [here](https://raw.githubusercontent.com/godlygeek/tabular/master/doc/Tabular.txt).
+
+## repeat
+1. `.` - Use `.` to repeat last operation.
