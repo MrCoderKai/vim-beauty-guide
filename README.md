@@ -466,8 +466,15 @@ need to support it, because you can use `:set list lcs=tab:\|\ (here is a space)
 ```
 " SOME CONFIGURATIONS FOR INDENTLINE PLUGIN
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-```
 
+# Install vim-nerdtree-tab Plugin
+1. `cd ~/.vim_runtime/my_plugin`
+2. `git clone https://github.com/jistr/vim-nerdtree-tabs.git`
+3. Add following configurations to `~/.vim_runtime/my_configs.vim`
+```
+hello
+```
+```
 
 # Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are 
