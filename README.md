@@ -25,6 +25,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install vim-multiple-cursors](#install-vim-multiple-cursors-plugin)
 - [Install nerdtree-git-plugin](#install-nerdtree-git-plugin)
 - [Install NERD Commenter Plugin](#install-nerd-commenter-plugin)
+- [Install easymotion Plugin](#install-easymotion-plugin)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
     - [Vim](#vim)
@@ -38,6 +39,7 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [NERD Commenter](#nerd-commenter)
     - [Tabular](#tabular)
     - [repeat](#repeat)
+    - [easymotion](#easymotion)
 
 # Screenshots
 ![Vim with `tagbar` and `NERDTree`](./images/vim_screenshot.png)
@@ -441,6 +443,17 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 ```
 
+# Install easymotion Plugin
+[EasyMotion](https://github.com/easymotion/vim-easymotion) provides a much 
+simpler way to use some motions in vim. It takes the `<number>` out of `<number>w` 
+or `<number>f{char}` by highlighting all possible choices and allowing you to 
+press one key to jump directly to the target.
+
+The guide to install `easymotion` plugin is as follows:
+1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone https://github.com/easymotion/vim-easymotion.git`
+
+
 # Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are 
 created.
@@ -627,3 +640,11 @@ Uncomments the selected line(s).
 
 ## repeat
 1. `.` - Use `.` to repeat last operation.
+
+## easymotion
+1. `<leader><leader>w` - To trigger the word motion `w`. When the motion is 
+triggered, the text is updated (no braces are actually added, the text is 
+highlighted in red by default):
+2. `<leader><leader>f<character>` - Search the specific `<character>` forwards.
+3. `<leader><leader>s<character>` - Search the specific `<character>` backwards.
+
