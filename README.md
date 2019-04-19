@@ -26,6 +26,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install nerdtree-git-plugin](#install-nerdtree-git-plugin)
 - [Install NERD Commenter Plugin](#install-nerd-commenter-plugin)
 - [Install easymotion Plugin](#install-easymotion-plugin)
+- [Install indentline Plugin](#install-indentline-plugin)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
     - [Vim](#vim)
@@ -452,6 +453,20 @@ press one key to jump directly to the target.
 The guide to install `easymotion` plugin is as follows:
 1. `cd ~/.vim_runtime/my_plugins`
 2. `git clone https://github.com/easymotion/vim-easymotion.git`
+
+
+# Install indentline Plugin
+This plugin is used for displaying thin vertical lines at each indentation level 
+for code indented with spaces. For code indented with tabs I think there is no 
+need to support it, because you can use `:set list lcs=tab:\|\ (here is a space)`.
+
+1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone https://github.com/yggdroot/indentline`
+3. Add following configurations in `~/.vim_runtime/my_configs.vim`
+```
+" SOME CONFIGURATIONS FOR INDENTLINE PLUGIN
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+```
 
 
 # Functions
