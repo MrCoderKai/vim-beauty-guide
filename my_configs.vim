@@ -146,8 +146,22 @@ map <silent> <F9> :TagbarToggle<CR>
 " map <silent> <F9> :TlistToggle<cr>
 
 
-
 " SOME CONFIGURATIONS FOR NERDTREE PLUGIN
+" Toggle NERDTree. It has ben mapped into <leader>nn, so comment here.
+" map <leader>t :NERDTreeToggle<CR>
+" show line number
+let NERDTreeShowLineNumbers=1
+let NERDTreeAutoCenter=1
+" show hidden files
+let NERDTreeShowHidden=0
+" set NERDTree window width
+let NERDTreeWinSize=31
+" Share NERDTree when starts vim from terminal
+let g:nerdtree_tabs_open_on_console_startup=1
+" Ignore the following files
+let NERDTreeIgnore=['\.pyc','\~$','\.swp']
+" show book marks
+let NERDTreeShowBookmarks=1
 " Open a NERDTree automatically when vim starts up
 autocmd vimenter * NERDTree
 " Go to previous (last accessed) window
@@ -349,4 +363,8 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
+
+
+" SOME CONFIGURATIONS FOR INDENTLINE PLUGIN
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
