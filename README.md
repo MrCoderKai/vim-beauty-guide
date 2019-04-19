@@ -645,6 +645,6 @@ Uncomments the selected line(s).
 1. `<leader><leader>w` - To trigger the word motion `w`. When the motion is 
 triggered, the text is updated (no braces are actually added, the text is 
 highlighted in red by default):
-2. `<leader><leader>f<character>` - Search the specific `<character>` forwards.
-3. `<leader><leader>s<character>` - Search the specific `<character>` backwards.
+2. `<leader><leader>f{character}` - Search the specific `{character}` forwards.
+3. `<leader><leader>s{character}` - Search the specific `{character}` backwards.
 
