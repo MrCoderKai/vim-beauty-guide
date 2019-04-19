@@ -41,6 +41,7 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [Tabular](#tabular)
     - [repeat](#repeat)
     - [easymotion](#easymotion)
+    - [Install vim-nerdtree-tab Plugin]()
 
 # Screenshots
 ![Vim with `tagbar` and `NERDTree`](./images/vim_screenshot.png)
@@ -472,7 +473,21 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 2. `git clone https://github.com/jistr/vim-nerdtree-tabs.git`
 3. Add following configurations to `~/.vim_runtime/my_configs.vim`
 ```
-hello
+" Toggle NERDTree. It has ben mapped into <leader>nn, so comment here.
+" map <leader>t :NERDTreeToggle<CR>
+" show line number
+let NERDTreeShowLineNumbers=1
+let NERDTreeAutoCenter=1
+" show hidden files
+let NERDTreeShowHidden=0
+" set NERDTree window width
+let NERDTreeWinSize=31
+" Share NERDTree when starts vim from terminal
+let g:nerdtree_tabs_open_on_console_startup=1
+" Ignore the following files
+let NERDTreeIgnore=['\.pyc','\~$','\.swp']
+" show book marks
+let NERDTreeShowBookmarks=1
 ```
 
 # Functions
