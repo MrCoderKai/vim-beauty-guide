@@ -350,6 +350,8 @@ individual hunks. The plugin also provides a hunk text object.~~
 
 ~~2. `git clone git://github.com/airblade/vim-gitgutter.git`~~
 
+`Vim-gitgutter` plugin is installed by default in `Ultimate Vimrc`.
+
 3. Add following configuration in `~/.vim_runtime/my_configs.vim`
 ```
 " SOME CONFIGURATIONS FOR VIM-GITGUTTER
