@@ -344,10 +344,10 @@ which shows a git diff in the 'gutter' (sign column). It shows which lines
 have been added, modified, or removed. You can also preview, stage, and undo 
 individual hunks. The plugin also provides a hunk text object.~~
 
-The guide to install `vim-gitgutter` is as follows:
+~~The guide to install `vim-gitgutter` is as follows:~~
 
-1. `cd ~/.vim_runtime/my_plugins`
-2. `git clone git://github.com/airblade/vim-gitgutter.git`
+~~1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone git://github.com/airblade/vim-gitgutter.git`~~
 3. Add following configuration in `~/.vim_runtime/my_configs.vim`
 ```
 " SOME CONFIGURATIONS FOR VIM-GITGUTTER
