@@ -367,4 +367,7 @@ let g:NERDToggleCheckAllLines = 1
 
 " SOME CONFIGURATIONS FOR INDENTLINE PLUGIN
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+" to make it compatible between INDENTLINE plugin and concealcurosr feature of
+" VIM_MARKDOWN plugin
+let g:indentLine_concealcursor = ''
 

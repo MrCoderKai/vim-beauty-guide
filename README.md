@@ -27,7 +27,8 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install NERD Commenter Plugin](#install-nerd-commenter-plugin)
 - [Install easymotion Plugin](#install-easymotion-plugin)
 - [Install indentline Plugin](#install-indentline-plugin)
-- [Install vim-nerdtree-tab Plugin]()#install-vim-nerdtree-tab-plugin)
+- [Install vim-nerdtree-tab Plugin](#install-vim-nerdtree-tab-plugin)
+- [Install vim-markdown-quote-syntax Plugin](#install-vim-markdown-quote-syntax-plugin)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
     - [Vim](#vim)
@@ -467,6 +468,9 @@ need to support it, because you can use `:set list lcs=tab:\|\ (here is a space)
 ```
 " SOME CONFIGURATIONS FOR INDENTLINE PLUGIN
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+" to make it compatible between INDENTLINE plugin and concealcurosr feature of 
+" VIM_MARKDOWN plugin
+let g:indentLine_concealcursor = ''
 ```
 # Install vim-nerdtree-tab Plugin
 1. `cd ~/.vim_runtime/my_plugin`
@@ -488,6 +492,35 @@ let g:nerdtree_tabs_open_on_console_startup=1
 let NERDTreeIgnore=['\.pyc','\~$','\.swp']
 " show book marks
 let NERDTreeShowBookmarks=1
+```
+
+
+# Install vim-markdown-quote-syntax Plugin
+[This plugin](https://github.com/joker1007/vim-markdown-quote-syntax) can enable 
+highlight markdown code block with appropriate syntax.
+
+The guide to install `vim-markdown-quote-syntax` plugin is as follows:
+
+1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone https://github.com/joker1007/vim-markdown-quote-syntax.git`
+
+After installation, code block can be highlighting by adding `<LANG>`. This is 
+an example:
+
+```cpp
+#include <ostream>
+#include "./include/common.h"
+#include <vector>
+int main(int argc, char** argv){
+    std::vector<int> vi;
+    for(int i=0; i<12; ++i){
+        vi.push_back(i);
+    }
+    for(auto iter=vi.begin(); iter != vi.end(); ++iter){
+        std::cout << *iter << std::endl;
+    }
+    return 0;
+}
 ```
 
 # Functions
