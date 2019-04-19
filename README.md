@@ -23,7 +23,6 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install vim-airline Plugin](#install-vim-airline-plugin)
 - [Install vim-gitgutter Plugin](#install-vim-gitgutter-plugin)
 - [Install vim-multiple-cursors](#install-vim-multiple-cursors-plugin)
-- [Install surround Plugin](#install-surround-plugin)
 - [Install nerdtree-git-plugin](#install-nerdtree-git-plugin)
 - [Install NERD Commenter Plugin](#install-nerd-commenter-plugin)
 - [Functions](#functions)
@@ -385,14 +384,6 @@ let g:multi_cursor_quit_key            = '<Esc>'
 **Note: This plugin should be used in *Normal* mode at start.**
 
 More usage examples can be found in [Keystrokes for example gifs](https://github.com/terryma/vim-multiple-cursors/wiki/Keystrokes-for-example-gifs).
-
-# Install surround Plugin
-[Surround](https://github.com/tpope/vim-surround) is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
-
-The guide to install `surround` Plugin is as follows:
-
-1. `cd ~/.vim_runtime/my_plugins`
-2. `git clone https://github.com/tpope/vim-surround.git`
 
 # Install nerdtree-git-plugin
 [Nerdtree-git-plugin](#https://github.com/Xuyuanp/nerdtree-git-plugin) is a 
