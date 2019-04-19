@@ -27,6 +27,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install NERD Commenter Plugin](#install-nerd-commenter-plugin)
 - [Install easymotion Plugin](#install-easymotion-plugin)
 - [Install indentline Plugin](#install-indentline-plugin)
+- [Install vim-nerdtree-tab Plugin]()#install-vim-nerdtree-tab-plugin)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
     - [Vim](#vim)
@@ -41,7 +42,6 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [Tabular](#tabular)
     - [repeat](#repeat)
     - [easymotion](#easymotion)
-    - [Install vim-nerdtree-tab Plugin]()
 
 # Screenshots
 ![Vim with `tagbar` and `NERDTree`](./images/vim_screenshot.png)
