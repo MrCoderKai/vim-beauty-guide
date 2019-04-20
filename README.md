@@ -594,30 +594,30 @@ After modification or re-name the file, press `F4` to update modify time and
 file name.
 
 # Shortcuts
-Description: The leader of VIM is mapper to `,` in 
+Description: The `<leader>` of VIM is mapper to `,` in 
 `~/.vim_runtime/vimrcs/basic.vim` file.
 
 ## VIM
 Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 
-1. `,+w`         - Fast saving
-2. `,+g`         - Open Ack and put the cursor in the right position
+1. `<leader>w`         - Fast saving
+2. `<leader>g`         - Open Ack and put the cursor in the right position
 3. `"+p`         - Paste system clipboard
 4. `"*p`         - Paste system buffer
-5. `f+character` - Find the specific `character` **f**orward
-6. `F+character` - Find the specific `character` backward
+5. `f<char>` - Find the specific `<char>` **f**orward
+6. `F<char>` - Find the specific `<char>` backward
 7. `vi}`         - enable Visual mode, and select inner Brace
 8. `K`           - Quicker break into new line after cursor in NORMAL mode
 
 
 ## NERD tree
-1. `,+nn` - Toggle NERD tree
-2. `,+nb` - NERD tree from bookmark
-3. `,+nf` - NERD tree find
+1. `,nn` - Toggle NERD tree
+2. `,nb` - NERD tree from bookmark
+3. `,nf` - NERD tree find
 
 ## ctags
-1. `Ctrl+]` - Go to definition
-2. `Ctrl+T` - Go back
+1. `<C-]>` - Go to definition. This shortcut means press `CTRL` and `]` key.
+2. `<C-t>` - Go back. This shortcut mans press`CTRL` and `t` key.
 
 ## Code Folder
 1. `zo` - Open code folder
@@ -626,16 +626,17 @@ Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 4. `zC` - Close all code folders
 
 ## Most Recently Used Files
-1. `,+f` - Open most recently used files list
+1. `,f` - Open most recently used files list
 
 ## Quick Comment and Uncomment
-1. `gc`   - (Un) - Comment out a line (takes a count)
-2. `gcap` - (Un) - Comment out A Paragraph
+~~1. `gc`   - (Un) - Comment out a line (takes a count)~~
+~~2. `gcap` - (Un) - Comment out A Paragraph~~
 
 ## cscope
-1. `Ctrl+\+s` - Open a menu at the bottom of your Vim window showing you all the
+1. `<C-\>`+`s` - Open a menu at the bottom of your Vim window showing you all the
 uses of the symbol, which the curosr, is over in the program.
-2. `Ctrl+t` - Jump back to your original location before the search (and you can
+**Note: This shortcut means press `CTRL` and `\`, then press `s` key.**
+2. `<C-t>` - Jump back to your original location before the search (and you can
 nest searches and `Ctrl+t` will unwind them one at a time).
 
 **Mnemonic: the `\` key is right next to the `]` key, which is used for ctags 
@@ -764,7 +765,7 @@ left side (`<leader>cl`) or both sides (`<leader>cb`).
 Uncomments the selected line(s).
 
 ## Tabular
-1. `:Tabularize /,` - Line these lines at the commas.
+1. `:Tabularize /<char>` - Line these lines at the specific `<char>`.
 
 `Tabular` tutorial can be found [here](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/).
 
@@ -777,6 +778,6 @@ Uncomments the selected line(s).
 1. `<leader><leader>w` - To trigger the word motion `w`. When the motion is 
 triggered, the text is updated (no braces are actually added, the text is 
 highlighted in red by default):
-2. `<leader><leader>f{character}` - Search the specific `{character}` forwards.
-3. `<leader><leader>s{character}` - Search the specific `{character}` backwards.
+2. `<leader><leader>f<char>` - Search the specific `<char>` forwards.
+3. `<leader><leader>s<char>` - Search the specific `<char>` backwards.
 
