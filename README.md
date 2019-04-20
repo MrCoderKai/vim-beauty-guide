@@ -383,10 +383,13 @@ let g:gitgutter_async = 0
 plugin that attempts at bringing Sublime Text's awesome multiple selection 
 feature into Vim.
 
-The guid to install `vim-multiple-cursors` is as follows:
+~~The guid to install `vim-multiple-cursors` is as follows:~~
 
-1. `cd ~/.vim_runtime/my_plugins/`
-2. `git clone https://github.com/terryma/vim-multiple-cursors.git`
+~~1. `cd ~/.vim_runtime/my_plugins/`~~
+~~2. `git clone https://github.com/terryma/vim-multiple-cursors.git`~~
+
+**Note: This plugin has been installed by `Ultimate vimrc`plugin by default.**
+
 3. Add following configurations in `~/.vim_runtime/my_configs.vim`
 ```
 " SOME CONFIGURATION FOR VIM-MULTIPLE-CURSORS
