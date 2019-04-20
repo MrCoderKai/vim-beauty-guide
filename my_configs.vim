@@ -61,6 +61,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+" Quicker break into new line after cursor in NORMAL mode
+nnoremap K a<CR><Esc>
 " highlight tabs and trailing spaces
 set list
 set listchars=tab:>-,trail:-,extends:>,precedes:<
@@ -119,9 +121,18 @@ let g:multi_cursor_quit_key            = '<Esc>'
 " SOME CONFIGURATION FOR TAGBAR
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 " set the width of tagbar
-let g:tagbar_width=30
+let g:tagbar_width=35
 " set tagbar window is on the left (right default)
 let g:tagbar_left=1
+" Whether line numbers should be shown in the Tagbar window.
+" Possible values are:
+"   0: Don't show any line numbers.
+"   1: Show absolute line numbers.
+"   2: Show relative line numbers.
+"  -1: Use the global line number settings.
+let g:tagbar_show_linenumbers = 1
+" Display of the icons used to indicate open or closed folds
+let g:tagbar_iconchars = ['▸', '▾']
 " focus on tagbar window when starts (file that vim opened default)
 " let g:tagbar_left=1
 " auto open tagbar when opening Vim with a supported file/files
@@ -371,3 +382,18 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " VIM_MARKDOWN plugin
 let g:indentLine_concealcursor = ''
 
+" Add support for markdown files in tagbar.
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : '~/.vim_runtime/my_plugins/markdown2ctags/markdown2ctags.py',
+    \ 'ctagsargs' : '-f - --sort=yes --sro=»',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '»',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }

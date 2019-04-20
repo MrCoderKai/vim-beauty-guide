@@ -29,6 +29,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install indentline Plugin](#install-indentline-plugin)
 - [Install vim-nerdtree-tab Plugin](#install-vim-nerdtree-tab-plugin)
 - [Install vim-markdown-quote-syntax Plugin](#install-vim-markdown-quote-syntax-plugin)
+- [Install markdown2ctags Plugin](#install-markdown2ctags-plugin)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
     - [Vim](#vim)
@@ -257,7 +258,16 @@ The step for tagbar plugin installation is as follows:
 " SOME CONFIGURATION FOR TAGBAR
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 " set the width of tagbar
-let g:tagbar_width=30
+let g:tagbar_width=35
+" Whether line numbers should be shown in the Tagbar window.
+" Possible values are:
+"   0: Don't show any line numbers.
+"   1: Show absolute line numbers.
+"   2: Show relative line numbers.
+"  -1: Use the global line number settings.
+let g:tagbar_show_linenumbers = 1
+" Display of the icons used to indicate open or closed folds
+let g:tagbar_iconchars = ['▸', '▾']
 " set tagbar window is on the left (right default)
 let g:tagbar_left=1
 " focus on tagbar window when starts (file that vim opened default)
@@ -523,6 +533,57 @@ int main(int argc, char** argv){
 }
 ```
 
+# Install markdown2ctags Plugin
+By default, [Tagbar](https://github.com/majutsushi/tagbar) doesn't support 
+markdown document. [Markdown2ctags](https://github.com/jszakmeister/markdown2ctags) 
+plugin generates ctags-compatible output for the sections of a Markdown document.
+
+The guide to install and configure [Markdown2ctags](https://github.com/jszakmeister/markdown2ctags) 
+is as follows:
+
+1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone https://github.com/jszakmeister/markdown2ctags.git`
+3. Add the following configurations to `~/.vim_runtime/my_configs.vim`
+```
+" Add support for markdown files in tagbar.
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : '/path/to/markdown2ctags.py',
+    \ 'ctagsargs' : '-f - --sort=yes --sro=»',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '»',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
+```
+**Note**: The configuration for `ctagsbin` should be changed into your real path 
+of `markdown2ctags.py`. If your follows this guide from top to here, the path 
+should be `~/.vim_runtime/my_plugins/markdown2ctags/markdown2ctags.py`.
+
+The suggestion from official guide:
+
+> The suggested sro used to be |, but this symbol could be used in headings 
+> (when talking about logical operators, for example). As a result, I recommend 
+> using something like the UTF-8 chevron above and specifying this new sro 
+> character on the command line via the --sro option.
+
+> However, some folks have had issues with the chevron--TagBar is failing to 
+> split on the character correctly and it results in incorrect headings that 
+> contain <bb> in TagBar. I'm not sure what the underlying cause is just yet, 
+> but if you're suffering from this issue, you may want to fall back to using 
+> the | character. You can do this by dropping the --sro=» parameter from c
+> tagsargs and setting 'sro' to '|'.
+
+> You'll need to have the TagBar plugin installed for this to work. Also, you 
+> may need to call the variable g:tagbar_type_mkd and change ctagstype to 'mkd' 
+> if you're Ben William's Markdown syntax highlighting script. It sets the file 
+> type to mkd whereas Tim Pope's sets it to markdown.
+
 # Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are 
 created.
@@ -545,6 +606,7 @@ Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 5. `f+character` - Find the specific `character` **f**orward
 6. `F+character` - Find the specific `character` backward
 7. `vi}`         - enable Visual mode, and select inner Brace
+8. `K`           - Quicker break into new line after cursor in NORMAL mode
 
 
 ## NERD tree
