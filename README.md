@@ -610,7 +610,7 @@ cd ~/.vim_runtime/my_plugins/LeaderF
 
 # Install echodoc Plugin
 
-`Echodoc Plugin`(https://github.com/Shougo/echodoc.vim) can displays function 
+[Echodoc Plugin](https://github.com/Shougo/echodoc.vim) can displays function 
 signatures from completions in the command line.
 
 1. `cd ~/.vim_runtime/my_plugins`
