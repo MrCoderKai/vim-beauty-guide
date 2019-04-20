@@ -29,6 +29,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install indentline Plugin](#install-indentline-plugin)
 - [Install vim-nerdtree-tab Plugin](#install-vim-nerdtree-tab-plugin)
 - [Install vim-markdown-quote-syntax Plugin](#install-vim-markdown-quote-syntax-plugin)
+- [Install markdown2ctags Plugin](#install-markdown2ctags-plugin)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
     - [Vim](#vim)
