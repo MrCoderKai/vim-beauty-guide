@@ -41,6 +41,7 @@ set softtabstop=4
 set shiftwidth=4
 " show line number
 set number
+" show line number
 set numberwidth=5
 " display incomplete commands
 set showcmd
@@ -57,12 +58,14 @@ set foldmethod=indent
 " disable code fold status at vim startup
 set foldlevelstart=99
 " Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-l> <C-w>l
 " Quicker break into new line after cursor in NORMAL mode
 nnoremap K a<CR><Esc>
+" Quicker clean highlight after searching
+nnoremap <silent> <S-L> :nohlsearch<CR>
 " highlight tabs and trailing spaces
 set list
 set listchars=tab:>-,trail:-,extends:>,precedes:<
@@ -237,8 +240,8 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " writing.
 let g:ycm_seed_identifiers_with_syntax = 1
 " Mapping keys. The Tab key in other plugins will be disabled without this.
-let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 " disable diagnostic disaply features
 let g:ycm_show_diagnostics_ui = 0
 " Press <Enter> to select current item
@@ -397,3 +400,9 @@ let g:tagbar_type_markdown = {
     \ },
     \ 'sort': 0,
 \ }
+
+" SOME CONFIGURATIONS FOR ECHODOC PLUGIN
+" enable echodoc plugin at vim startup
+let g:echodoc#enable_at_startup=1
+" do not show mode
+set noshowmode

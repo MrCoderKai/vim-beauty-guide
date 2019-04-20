@@ -30,6 +30,8 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install vim-nerdtree-tab Plugin](#install-vim-nerdtree-tab-plugin)
 - [Install vim-markdown-quote-syntax Plugin](#install-vim-markdown-quote-syntax-plugin)
 - [Install markdown2ctags Plugin](#install-markdown2ctags-plugin)
+- [Install LeaderF Plugin](#install-leaderf-plugin)
+- [Install echodoc Plugin](#install-echodoc-plugin)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
     - [Vim](#vim)
@@ -288,6 +290,9 @@ Then, `tagbar` will automatically open when open Vim to edit supported file/file
 
 Press `<F9>` to toggle `tagbar` window.
 
+**Note: If vim has no response when cursor is in tagbar window, press `<ESC>` key
+to solver this problem.**
+
 # Install cscope
 [Cscope](http://cscope.sourceforge.net/) is a developer's tool for browsing source code. It has the following features:
 * Allows searching code for:
@@ -386,6 +391,7 @@ feature into Vim.
 ~~The guid to install `vim-multiple-cursors` is as follows:~~
 
 ~~1. `cd ~/.vim_runtime/my_plugins/`~~
+
 ~~2. `git clone https://github.com/terryma/vim-multiple-cursors.git`~~
 
 **Note: This plugin has been installed by `Ultimate vimrc`plugin by default.**
@@ -588,6 +594,38 @@ The suggestion from official guide:
 > if you're Ben William's Markdown syntax highlighting script. It sets the file 
 > type to mkd whereas Tim Pope's sets it to markdown.
 
+# Install LeaderF Plugin
+
+[LeaderF plugin](https://github.com/Yggdroot/LeaderF) is mainly used for locating
+files, buffers, mrus, ctags, gtags, etc. in large project.
+
+1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone https://github.com/Yggdroot/LeaderF.git`
+3. Install C extension of the fuzzy matching algorithm, which is more than 10
+times faster
+```
+cd ~/.vim_runtime/my_plugins/LeaderF
+./install.sh
+```
+
+# Install echodoc Plugin
+
+`Echodoc Plugin`(https://github.com/Shougo/echodoc.vim) can displays function 
+signatures from completions in the command line.
+
+1. `cd ~/.vim_runtime/my_plugins`
+2. Add following configurations in `~/.vim_runtime/my_configs.vim`
+```
+" SOME CONFIGURATIONS FOR ECHODOC PLUGIN
+" enable echodoc plugin at vim startup
+let g:echodoc#enable_at_startup=1
+" do not show mode
+set noshowmode
+```
+
+**Note: To trigger `echodoc` plugin, you must use `<TAB>` to auto complete and 
+input `(`.**
+
 # Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are 
 created.
@@ -603,14 +641,29 @@ Description: The `<leader>` of VIM is mapper to `,` in
 ## VIM
 Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 
-1. `<leader>w`         - Fast saving
-2. `<leader>g`         - Open Ack and put the cursor in the right position
-3. `"+p`         - Paste system clipboard
-4. `"*p`         - Paste system buffer
-5. `f<char>` - Find the specific `<char>` **f**orward
-6. `F<char>` - Find the specific `<char>` backward
-7. `vi}`         - enable Visual mode, and select inner Brace
-8. `K`           - Quicker break into new line after cursor in NORMAL mode
+1. `<leader>w`        - Fast saving
+2. `<leader>g`        - Open Ack and put the cursor in the right position
+3. `"+p`              - Paste system clipboard
+4. `"*p`              - Paste system buffer
+5. `f<char>`          - Find the specific `<char>` **f**orward
+6. `F<char>`          - Find the specific `<char>` backward
+7. `vi}`              - enable Visual mode, and select inner Brace
+8. `K`                - Quicker break into new line after cursor in NORMAL mode
+9. `:set <var>?`      - Print the value of `<var>`
+10. `%`               - Jump to the corresponding brackets
+11. `:Sex`            - Open Netrw Directory in vertical window, choose and enter to open file
+12. `:Vex`            - Open Netrw Directory in horizontal window, choose and enter to open file
+13. `:earlier <time>` - Back `<time>` ago. `<time>` example: `1s`, `1m`
+14. `later <time>`    - Future `<time>` ago. `<time>` example: `1s`, `1m`
+15. `shift+k`         - Quicker clean highlight after searching
+16. `cc`              - Clean current line with indent remains
+17. `di<bracket>`     - **D**elete **I**nner `<bracket>`, `bracket` can be `(['"`
+18. `da<bracket>`     - Delete including `<bracket>`
+19. `J` - Combine current line with next line
+20. `dw` - Delete a word after cursor (the char befor cursor will not be deleted)
+21. `diw` - Delete a whole word that the cursor on: **D**elete **I**n **W**ord
+22. `:e **/<filename>` - Edit the filename which can be found from sun-directories
+
 
 
 ## NERD tree
@@ -620,7 +673,9 @@ Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 
 ## ctags
 1. `<C-]>` - Go to definition. This shortcut means press `CTRL` and `]` key.
-2. `<C-t>` - Go back. This shortcut mans press`CTRL` and `t` key.
+2. `<C-w>]` - Open the definition in a splitted window
+3. `<C-w>}` - Open the definition in preview window
+4. `<C-t>` - Go back. This shortcut mans press`CTRL` and `t` key.
 
 ## Code Folder
 1. `zo` - Open code folder
@@ -784,3 +839,11 @@ highlighted in red by default):
 2. `<leader><leader>f<char>` - Search the specific `<char>` forwards.
 3. `<leader><leader>s<char>` - Search the specific `<char>` backwards.
 
+## CtrlP
+1. `<C-f>` - Open `CtrlP` and cycle modes forwards
+2. `<C-b>` - Cycle modes backwards when `CtrlP` has been opened
+3. `<Esc>` or `<C-g>` - Close `CtrlP`
+
+## LeaderF
+1. `:Leaderf file` - Search files
+More can be found in [official guide](https://github.com/Yggdroot/LeaderF).
