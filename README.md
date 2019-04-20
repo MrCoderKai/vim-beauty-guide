@@ -29,7 +29,6 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install indentline Plugin](#install-indentline-plugin)
 - [Install vim-nerdtree-tab Plugin](#install-vim-nerdtree-tab-plugin)
 - [Install vim-markdown-quote-syntax Plugin](#install-vim-markdown-quote-syntax-plugin)
-- [Install markdown2ctags Plugin](#install-markdown2ctags-plugin)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
     - [Vim](#vim)
@@ -534,6 +533,7 @@ int main(int argc, char** argv){
 ```
 
 # Install markdown2ctags Plugin
+
 By default, [Tagbar](https://github.com/majutsushi/tagbar) doesn't support 
 markdown document. [Markdown2ctags](https://github.com/jszakmeister/markdown2ctags) 
 plugin generates ctags-compatible output for the sections of a Markdown document.
