@@ -32,6 +32,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install markdown2ctags Plugin](#install-markdown2ctags-plugin)
 - [Install LeaderF Plugin](#install-leaderf-plugin)
 - [Install echodoc Plugin](#install-echodoc-plugin)
+- [Install vimtex Plugin](#install-vimtex-plugin)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
     - [Vim](#vim)
