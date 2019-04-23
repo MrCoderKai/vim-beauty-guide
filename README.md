@@ -629,12 +629,14 @@ input `(`.**
 
 # Install vimtex Plugin
 
-**REQUIRE: 
-1. Perl installed
-2. TesLive 2018 installed**
+**REQUIRE:** 
+**1. Perl installed**
+**2. TesLive 2018 installed**
 
 [MacTex Official Website](http://tug.org/mactex/)
+
 [MacTex Download Page](http://tug.org/mactex/mactex-download.htmlhttp://tug.org/mactex/mactex-download.html)
+
 [MacTex Download Link](http://tug.org/cgi-bin/mactex-download/MacTeX.pkg)
 
 1. `cd ~/.vim_runtime/my_plugins`
@@ -658,7 +660,7 @@ export PATH="$PATH:/usr/local/texlive/2018/bin/x86_64-darwin"
 ```
 Otherwise, `latexmk` cannot find `pdftex` command to compile *tex* file.
 
-~~8. Install `zathura` pdf viewer ~~
+~~8. Install `zathura` pdf viewer~~
 
 Because `zathura` cannot automatically open after `latexmk` finish compiling, 
 DO NOT insall `zathura`, use `mupdf` instead, see STEP 9.
