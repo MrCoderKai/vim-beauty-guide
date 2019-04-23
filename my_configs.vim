@@ -6,6 +6,7 @@ set autowrite
 set magic
 " detect file types
 filetype on
+filetype plugin indent on
 " syntax highlight
 syntax enable
 set background=dark
@@ -42,7 +43,7 @@ set shiftwidth=4
 " show line number
 set number
 " show line number
-set numberwidth=5
+set numberwidth=4
 " display incomplete commands
 set showcmd
 " need confirmation while exit
@@ -77,6 +78,7 @@ set cursorline
 " highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 " highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 
+
 " configurations for vim-indent-guides pulgin
 let g:indent_guides_enable_on_vim_startup = 1
 set ts=4 sw=4 et
@@ -86,6 +88,10 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 
+" Set the appearance of border between vsplit windows
+hi VertSplit ctermbg=black
+hi VertSplit ctermfg=darkgrey
+set fillchars+=vert:\│,stl:\ ,stlnc:\ 
 
 " SOME CONFIGURATIONS FOR VIM_AIRLINE
 set t_Co=256
@@ -124,7 +130,7 @@ let g:multi_cursor_quit_key            = '<Esc>'
 " SOME CONFIGURATION FOR TAGBAR
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 " set the width of tagbar
-let g:tagbar_width=35
+let g:tagbar_width=31
 " set tagbar window is on the left (right default)
 let g:tagbar_left=1
 " Whether line numbers should be shown in the Tagbar window.
@@ -170,12 +176,14 @@ let NERDTreeAutoCenter=1
 let NERDTreeShowHidden=0
 " set NERDTree window width
 let NERDTreeWinSize=31
+let NERDTreeWinSizeMax=31
 " Share NERDTree when starts vim from terminal
 let g:nerdtree_tabs_open_on_console_startup=1
 " Ignore the following files
 let NERDTreeIgnore=['\.pyc','\~$','\.swp']
 " show book marks
 let NERDTreeShowBookmarks=1
+let NERDTreeMouseMode=1
 " Open a NERDTree automatically when vim starts up
 autocmd vimenter * NERDTree
 " Go to previous (last accessed) window
@@ -250,11 +258,12 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 nnoremap <c-j> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
-
+autocmd BufWrite *.tex exec ":call UpdateTitle()"
+" autocmd BufWriteCmd *.tex exec ":call UpdateTitle()"
 
 map <F4> :call UpdateTitle()<CR>
 " Automatically insert file header
-autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java,*.py exec ":call SetTitle()"
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java,*.py,*.tex exec ":call SetTitle()"
 " Definition of SetTitle function. Automatically insert file header
 func SetTitle()
 	" if file type is *.sh
@@ -272,6 +281,23 @@ func SetTitle()
 		call append(line(".")+9, "# Co-Author: ")
 		call append(line(".")+10, "# Copyright (c) All Rights Reserved")
 		call append(line(".")+11, "#########################################################################")
+    endif
+    if &filetype == 'tex'
+		call setline(1,           "%!TEX program = xelatex")
+		call append(line("."),    "%!TEX encoding = UTF-8 Unicode")
+		call append(line(".")+1, "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+		call append(line(".")+2,  "% File Name: ".expand("%"))
+		call append(line(".")+3,  "% Author: chengkai")
+		call append(line(".")+4,  "% E-mail: chengkaiupc@163.com")
+		call append(line(".")+5,  "% Created Time: ".strftime("%m/%d  %H:%M:%S  %Y"))
+        call append(line(".")+6,  "% Last Modified: ".strftime("%m/%d  %H:%M:%S  %Y"))
+        call append(line(".")+7,  "% Description: ")
+		call append(line(".")+8,  "%     > ")
+		call append(line(".")+9,  "%     > ")
+		call append(line(".")+10, "%     > ")
+		call append(line(".")+11, "% Co-Author: ")
+		call append(line(".")+12, "% Copyright (c) All Rights Reserved")
+		call append(line(".")+13, "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 	else
 		call setline(1, "/*************************************************************************")
 		call append(line("."),    "    > File Name: ".expand("%"))
@@ -308,6 +334,9 @@ func SetTitle()
 		call append(line(".")+12, "#include <stdio.h>")
 		call append(line(".")+13, "")
 	endif
+    if &filetype == 'tex'
+        call append(line(".")+14, "")
+    endif
 	"	if &filetype == 'java'
 	"		call append(line(".")+6,"public class ".expand("%"))
 	"		call append(line(".")+7,"")
@@ -317,9 +346,15 @@ func SetTitle()
 endfunc
 
 function UpdateTitle()
-    let modifyTimeLine = getline(6)
+    if &filetype == "tex"
+        let modifyTimeLine = getline(8)
+    else
+        let modifyTimeLine = getline(6)
+    endif
     if &filetype == 'sh' || &filetype == 'python'
         let newModifyTimeLine = "# Last Modified: ".strftime("%m/%d  %H:%M:%S  %Y")
+    elseif &filetype == 'tex'
+        let newModifyTimeLine = "% Last Modified: ".strftime("%m/%d  %H:%M:%S  %Y")
     else
         let newModifyTimeLine = "    > Last Modified: ".strftime("%m/%d  %H:%M:%S  %Y")
     endif
@@ -328,12 +363,22 @@ function UpdateTitle()
     let pattern = 'Last\(.*\)Modified'
     let res = match(modifyTimeLine, pattern)
     if res >= 0
-        call setline(6, repl)
+        if &filetype == "tex"
+            call setline(8, repl)
+        else
+            call setline(6, repl)
+        endif
     endif
 
-    let titleLine = getline(2)
+    if &filetype == "tex"
+        let titleLine = getline(4)
+    else
+        let titleLine = getline(2)
+    endif
     if &filetype == 'sh' || &filetype == 'python'
         let newTitleLine = "# File Name: ".expand("%")
+    elseif &filetype == 'tex'
+        let newTitleLine = "% File Name: ".expand("%")
     else
         let newTitleLine = "    > File Name: ".expand("%")
     endif
@@ -342,7 +387,11 @@ function UpdateTitle()
     let res = match(titleLine, pattern)
     " update file name
     if res >= 0
-        call setline(2, repl)
+        if &filetype == "tex"
+            call setline(4, repl)
+        else
+            call setline(2, repl)
+        endif
     endif
 endfunc
 
@@ -406,3 +455,28 @@ let g:tagbar_type_markdown = {
 let g:echodoc#enable_at_startup=1
 " do not show mode
 set noshowmode
+
+" SOME CONFIGURATIONS FOR TABULAR PLUGIN
+nnoremap <Leader>a= :Tabularize /=<CR>
+nnoremap <Leader>a: :Tabularize /:<CR>
+nnoremap <Leader>a:: :Tabularize /:\zs<CR>
+nnoremap <Leader>a, :Tabularize /,<CR>
+nnoremap <Leader>a- :Tabularize /-<CR>
+
+" SOME CONFIGURATIONS FOR VIMTEX PLUGIN
+let g:tex_flavor="latex"
+" Enable vimtex plugin by default
+let g:vimtex_enabled=1
+let g:vimtex_view_automatic=1
+" Start server at vim startup
+if empty(v:servername) && exists('*remote_startserver')
+    call remote_startserver('VIM')
+endif
+" Set compiler method for tex file
+let g:vimtex_compiler_method="latexmk"
+" Set view method for PDF
+let g:vimtex_view_method="mupdf"
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal="abdmg"
+let g:vimtex_latexmk_options='-pdf -pdflatex=\"xelatex -synctex=1 %S %O\" -verbose -file-line-error -interaction=nonstopmode'

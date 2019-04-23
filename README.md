@@ -626,6 +626,82 @@ set noshowmode
 **Note: To trigger `echodoc` plugin, you must use `<TAB>` to auto complete and 
 input `(`.**
 
+# Install vimtex Plugin
+
+**REQUIRE: 
+1. Perl installed
+2. TesLive 2018 installed**
+
+[MacTex Official Website](http://tug.org/mactex/)
+[MacTex Download Page](http://tug.org/mactex/mactex-download.htmlhttp://tug.org/mactex/mactex-download.html)
+[MacTex Download Link](http://tug.org/cgi-bin/mactex-download/MacTeX.pkg)
+
+1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone https://github.com/lervag/vimtex.git`
+3. `mkdir temp`
+4. `cd temp`
+5. [Latexmk](http://personal.psu.edu/jcc8//software/latexmk-jcc/) version can be found in [VERSION PAGE](http://personal.psu.edu/jcc8//software/latexmk-jcc/versions.html).
+Download `Latexmk`: `wget http://personal.psu.edu/jcc8//software/latexmk-jcc/latexmk-463b.zip`
+6. Unzip dowloaded `latexmk-463b.zip` and move `latexmk.pl`
+```
+unzip latexmk*.zip
+cp latexmk/latexmk.pl /usr/local/bin
+mv /usr/local/bin/latexmk.pl /usr/local/bin/latexmk
+```
+7. [Download MacTex](http://tug.org/cgi-bin/mactex-download/MacTeX.pkg) and install.
+After install [MacTex](https://www.tug.org/mactex/), 
+add following configuration to `~/.zshrc` and `~/.bash_profile`
+```
+# Add Texlive 2018 bin path
+export PATH="$PATH:/usr/local/texlive/2018/bin/x86_64-darwin"
+```
+Otherwise, `latexmk` cannot find `pdftex` command to compile *tex* file.
+
+~~8. Install `zathura` pdf viewer ~~
+
+Because `zathura` cannot automatically open after `latexmk` finish compiling, 
+DO NOT insall `zathura`, use `mupdf` instead, see STEP 9.
+
+```
+brew tap zegervdv/zathura
+brew cask install xquartz
+brew install zathura
+brew install zathura-pdf-poppler
+mkdir -p $(brew --prefix zathura)/lib/zathura
+ln -s $(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib $(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib
+brew install xdotool
+```
+
+9. Install `mupdf` pdf viewer
+```
+brew install mupdf
+ln -s /usr/local/Cellar/mupdf/1.14.0/bin/mupdf-gl /usr/local/bin/mupdf
+```
+
+10. Add following configuration to `~/.vim_runtime/my_configs.vim`
+```
+" SOME CONFIGURATIONS FOR VIMTEX PLUGIN
+let g:tex_flavor="latex"
+" Enable vimtex plugin by default
+let g:vimtex_enabled=1
+let g:vimtex_view_automatic=1
+" Start server at vim startup
+if empty(v:servername) && exists('*remote_startserver')
+    call remote_startserver('VIM')
+endif
+" Set compiler method for tex file
+let g:vimtex_compiler_method="latexmk"
+" Set view method for PDF
+let g:vimtex_view_method="mupdf"
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal="abdmg"
+let g:vimtex_latexmk_options='-pdf -pdflatex=\"xelatex -synctex=1 %S %O\" -verbose -file-line-error -interaction=nonstopmode'
+```
+
+Now, you can use `VIM` edit and complie `*.tex` files, and open pdf file 
+automatically.
+
 # Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are 
 created.
@@ -641,28 +717,32 @@ Description: The `<leader>` of VIM is mapper to `,` in
 ## VIM
 Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 
-1. `<leader>w`        - Fast saving
-2. `<leader>g`        - Open Ack and put the cursor in the right position
-3. `"+p`              - Paste system clipboard
-4. `"*p`              - Paste system buffer
-5. `f<char>`          - Find the specific `<char>` **f**orward
-6. `F<char>`          - Find the specific `<char>` backward
-7. `vi}`              - enable Visual mode, and select inner Brace
-8. `K`                - Quicker break into new line after cursor in NORMAL mode
-9. `:set <var>?`      - Print the value of `<var>`
-10. `%`               - Jump to the corresponding brackets
-11. `:Sex`            - Open Netrw Directory in vertical window, choose and enter to open file
-12. `:Vex`            - Open Netrw Directory in horizontal window, choose and enter to open file
-13. `:earlier <time>` - Back `<time>` ago. `<time>` example: `1s`, `1m`
-14. `later <time>`    - Future `<time>` ago. `<time>` example: `1s`, `1m`
-15. `shift+k`         - Quicker clean highlight after searching
-16. `cc`              - Clean current line with indent remains
-17. `di<bracket>`     - **D**elete **I**nner `<bracket>`, `bracket` can be `(['"`
-18. `da<bracket>`     - Delete including `<bracket>`
-19. `J` - Combine current line with next line
-20. `dw` - Delete a word after cursor (the char befor cursor will not be deleted)
-21. `diw` - Delete a whole word that the cursor on: **D**elete **I**n **W**ord
-22. `:e **/<filename>` - Edit the filename which can be found from sun-directories
+1. `<leader>w`         - Fast saving
+2. `<leader>g`         - Open Ack and put the cursor in the right position
+3. `"+p`               - Paste system clipboard
+4. `"*p`               - Paste system buffer
+5. `f<char>`           - Find the specific `<char>` **f**orward
+6. `F<char>`           - Find the specific `<char>` backward
+7. `vi}`               - enable Visual mode, and select inner Brace
+8. `K`                 - Quicker break into new line after cursor in NORMAL mode
+9. `:set <var>?`       - Print the value of `<var>`
+10. `%`                - Jump to the corresponding brackets
+11. `:Sex`             - Open Netrw Directory in vertical window, choose and enter to open file
+12. `:Vex`             - Open Netrw Directory in horizontal window, choose and enter to open file
+13. `:earlier <time>`  - Back `<time>` ago. `<time>` example: `1s`, `1m`
+14. `later <time>`     - Future `<time>` ago. `<time>` example: `1s`, `1m`
+15. `shift+k`          - Quicker clean highlight after searching
+16. `cc`               - Clean current line with indent remains
+17. `di<bracket>`      - **D**elete **I**nner `<bracket>`, `bracket` can be `(['"`
+18. `da<bracket>`      - Delete including `<bracket>`
+19. `J`                - Combine current line with next line
+20. `dw`               - Delete a word after cursor (the char befor cursor will not be deleted)
+21. `diw`              - Delete a whole word that the cursor on: **D**elete **I**n **W**ord
+22. `:e **/<filename>` - Edit the filename which can be found from subdirectories
+23. `:b<num>`          - Switch to the file whose label is `<num>` when editing multiple files
+23. `:bd<num>`         - Close the file whose label is `<num>` when editing multiple files
+24. `:bn`              - Switch to **n**ext file when editing multiple files
+25. `:bp`              - Switch to **p**revious file when editing multiple files
 
 
 
@@ -688,6 +768,7 @@ Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 
 ## Quick Comment and Uncomment
 ~~1. `gc`   - (Un) - Comment out a line (takes a count)~~
+
 ~~2. `gcap` - (Un) - Comment out A Paragraph~~
 
 ## cscope
@@ -824,6 +905,10 @@ Uncomments the selected line(s).
 
 ## Tabular
 1. `:Tabularize /<char>` - Line these lines at the specific `<char>`.
+2. `<leader>a-` - Same as `:Tabularize /-`
+3. `<leader>a=` - Same as `:Tabularize /=`
+4. `<leader>a:` - Same as `:Tabularize /:`
+5. `<leader>a,` - Same as `:Tabularize /,`
 
 `Tabular` tutorial can be found [here](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/).
 
