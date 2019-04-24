@@ -1018,3 +1018,12 @@ More can be found in [official guide](https://github.com/Yggdroot/LeaderF).
 1. `\ll` - Start compile the latex document
 2. `\lv` - Open pdf viewer and/or do forward searching
 3. `\lt` - Toggle table of contents (TOC) viewer
+
+## mupdf
+1. `q` - quit
+2. `f` - full screen
+3. `hjkl` - left, uo, down, right movement
+4. `<space>` - next page
+5. `b` - previous page
+6. `.` - next page, top
+7. `,` - previous page, bottom
