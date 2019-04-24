@@ -433,6 +433,9 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " to make it compatible between INDENTLINE plugin and concealcurosr feature of
 " VIM_MARKDOWN plugin
 let g:indentLine_concealcursor = ''
+" indentLine will overwrite 'conceal' color with grey by default. If you want
+" to highlight conceal color with your colorscheme, disable by:
+let g:indentLine_setColors = 0
 
 " Add support for markdown files in tagbar.
 let g:tagbar_type_markdown = {
@@ -478,15 +481,16 @@ let g:vimtex_compiler_method="latexmk"
 let g:vimtex_view_method="mupdf"
 let g:vimtex_quickfix_mode=0
 set conceallevel=2
-let g:tex_conceal="abdmg"
+" set concealcursor=nvic
+let g:tex_conceal="abdmgs"
 let g:vimtex_latexmk_options='-pdf -pdflatex=\"xelatex -synctex=1 %S %O\" -verbose -file-line-error -interaction=nonstopmode'
 
 " SOME CONFIGURATIONS FOR ULTISNIPS
 " Trigger configuration. Do not use <tab> 
 " if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]

@@ -495,7 +495,11 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " to make it compatible between INDENTLINE plugin and concealcurosr feature of 
 " VIM_MARKDOWN plugin
 let g:indentLine_concealcursor = ''
+" indentLine will overwrite 'conceal' color with grey by default. If you want
+" to highlight conceal color with your colorscheme, disable by:
+let g:indentLine_setColors = 0
 ```
+
 # Install vim-nerdtree-tab Plugin
 1. `cd ~/.vim_runtime/my_plugin`
 2. `git clone https://github.com/jistr/vim-nerdtree-tabs.git`
