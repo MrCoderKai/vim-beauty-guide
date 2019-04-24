@@ -48,6 +48,9 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [Tabular](#tabular)
     - [repeat](#repeat)
     - [easymotion](#easymotion)
+    - [CtrlP](#ctrlp)
+    - [LeaderF](#leaderf)
+    - [Ultisnips](#ultisnips)
 
 # Screenshots
 ![Vim with `tagbar` and `NERDTree`](./images/vim_screenshot.png)
@@ -727,8 +730,8 @@ snippets in Vim. It has tons of features and is very fast.
 " Trigger configuration. Do not use <tab> 
 " if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
@@ -969,3 +972,6 @@ highlighted in red by default):
 ## LeaderF
 1. `:Leaderf file` - Search files
 More can be found in [official guide](https://github.com/Yggdroot/LeaderF).
+
+## Ultisnips
+1. `<c-j>` - UltiSnipsExpandTrigger
