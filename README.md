@@ -66,6 +66,7 @@ Describe: There are some other configurations that are not mentioned in this gui
 2. `.vimrc`: This file should under path `~/`
 3. `my_configs.vim`: This file should under path `~/.vim_runtime/`
 4. `.ycm_extra_conf.py`: This file should under path `~/.vim_runtime/my_plugins/YouCompleteMe`
+5. `.ctags`: This file should under path `~`
 
 # Environment
 1. Macbook Pro 2018
@@ -77,13 +78,13 @@ Describe: There are some other configurations that are not mentioned in this gui
 3. Double click unziped **iTerm** file, and choose **Move to Applications Folder**.
 
 # Install Basic Tools
-## Install **brew**
+## Install brew
 1. `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 `
-## Install **cmake**
+## Install cmake
 1. `brew install cmake`
 
-# Install **Ultimate Vimrc**
+# Install Ultimate Vimrc
 1. `git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime`
 2. `sh ~/.vim_runtime/install_awesome_vimrc.sh`
 
@@ -101,7 +102,7 @@ Describe: There are some other configurations that are not mentioned in this gui
 
 Detail usage of **Ultimate Vimrc**, please refer to [Included Plugins and remain sections](https://github.com/amix/vimrc#included-plugins)
 
-# Install **MacVim**
+# Install MacVim
 In order to successfully install **YouCompleteMe** plugin, we should install **MacVim** to replace **vim**. Otherwise, the following error would accur:
 
 ```
@@ -133,7 +134,7 @@ export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 ```
 6. Exit editting **~/.bash_profile** and use `source ~/.bash_profile` to enable those configurations.
 
-# Install **YouCompleteMe**
+# Install YouCompleteMe
 
 YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for [Vim](https://www.vim.org/).
 1. `cd ~/.vim_runtime/my_plugins`
@@ -177,7 +178,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 nnoremap <c-j> :YcmCompleter GoToDefinitionElseDeclaration<CR>"
 ```
 
-# Install **vim-indent-guides** Plugin
+# Install vim-indent-guides Plugin
 [Indent Guides](https://github.com/nathanaelkane/vim-indent-guides) is a plugin for visually displaying indent levels in Vim.
 1. `cd ~/.vim_runtime/my_plugins`
 2. `git clone git://github.com/nathanaelkane/vim-indent-guides.git`
@@ -194,7 +195,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 ```
 
-# Install **ctags**
+# Install ctags
 *This section is refered to [ctag.setup](https://gist.github.com/nazgob/1570678)*.
 
 By default, **ctags** is installed on MacOS, but it does not work. For example:
@@ -217,8 +218,20 @@ This means, **ctags** can not work correctly. Thus, we should install new **ctag
 #alias ctags if you used homebrew
 alias ctags="`brew --prefix`/bin/ctags"
 ```
-
+3. To add tex and bib support, create `~/.ctags` file and add following
+configuraitons:
+```
+--langdef=tex2
+--langmap=tex2:.tex
+--regex-tex2=/\\label[ \t]*\*?\{[ \t]*([^}]*)\}/\1/l,label/
+--langdef=bib
+--langmap=bib:.bib
+--regex-bib=/^@[A-Za-z]+\{([^,]+),/\1/e,BibTeX-Entries/i
+--regex-bib=/^@string\{([^ "#%')(,=}{]+)/\1/s,BibTeX-Strings/i
+--regex-bib=/author[[:space:]]*=[[:space:]]*("([^"]+)"|\{([^\}]+)\})[[:space:]]*,?[[:space:]]*$/\2\3/a,BibTeX-Authors/i
+```
 Now, **ctags** can be work correctly.
+
 
 Note:
 
