@@ -33,6 +33,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install LeaderF Plugin](#install-leaderf-plugin)
 - [Install echodoc Plugin](#install-echodoc-plugin)
 - [Install vimtex Plugin](#install-vimtex-plugin)
+- [Install UltiSnips Plugin](#install-ultisnips-plugin)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
     - [Vim](#vim)
@@ -662,8 +663,8 @@ Otherwise, `latexmk` cannot find `pdftex` command to compile *tex* file.
 
 ~~8. Install `zathura` pdf viewer~~
 
-Because `zathura` cannot automatically open after `latexmk` finish compiling, 
-DO NOT insall `zathura`, use `mupdf` instead, see STEP 9.
+**Because `zathura` cannot automatically open after `latexmk` finish compiling,**
+**DO NOT insall `zathura`, use `mupdf` instead, see STEP 9.**
 
 ```
 brew tap zegervdv/zathura
@@ -679,6 +680,15 @@ brew install xdotool
 ```
 brew install mupdf
 ln -s /usr/local/Cellar/mupdf/1.14.0/bin/mupdf-gl /usr/local/bin/mupdf
+```
+10. Install `tex-conceal` Plugin
+
+[tex-conceal plugin](https://github.com/KeitaNakamura/tex-conceal.vim) extends 
+the Conceal feature of Vim for LaTeX.
+
+```
+cd ~/.vim_runtime/my_plugins
+git clone https://github.com/KeitaNakamura/tex-conceal.vim.git
 ```
 
 10. Add following configuration to `~/.vim_runtime/my_configs.vim`
@@ -697,13 +707,37 @@ let g:vimtex_compiler_method="latexmk"
 " Set view method for PDF
 let g:vimtex_view_method="mupdf"
 let g:vimtex_quickfix_mode=0
-set conceallevel=1
+set conceallevel=2
 let g:tex_conceal="abdmg"
 let g:vimtex_latexmk_options='-pdf -pdflatex=\"xelatex -synctex=1 %S %O\" -verbose -file-line-error -interaction=nonstopmode'
 ```
 
 Now, you can use `VIM` edit and complie `*.tex` files, and open pdf file 
 automatically.
+
+# Install UltiSnips Plugin
+[UltiSnips](https://github.com/SirVer/ultisnips) is the ultimate solution for 
+snippets in Vim. It has tons of features and is very fast.
+
+1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone https://github.com/SirVer/ultisnips.git`
+3. Add following configurations into `~/.vim_runtime/my_configs.vim`
+```
+" SOME CONFIGURATIONS FOR ULTISNIPS
+" Trigger configuration. Do not use <tab> 
+" if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+```
+4. `mkdir ~/.vim_runtime/UltiSnips`
+Then, create snippets files in `/.vim_runtime/UltiSnips`, `UltiSnips` can automatically
+detect and load those snippets files.
+
+**Note: snippets files is named by `filetype.snippets`, e.g. tex.snippets.**
 
 # Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are 

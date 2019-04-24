@@ -255,7 +255,7 @@ let g:ycm_show_diagnostics_ui = 0
 " Press <Enter> to select current item
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 " Go to definition else declaration
-nnoremap <c-j> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <c-d> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 autocmd BufWrite *.tex exec ":call UpdateTitle()"
@@ -477,6 +477,17 @@ let g:vimtex_compiler_method="latexmk"
 " Set view method for PDF
 let g:vimtex_view_method="mupdf"
 let g:vimtex_quickfix_mode=0
-set conceallevel=1
+set conceallevel=2
 let g:tex_conceal="abdmg"
 let g:vimtex_latexmk_options='-pdf -pdflatex=\"xelatex -synctex=1 %S %O\" -verbose -file-line-error -interaction=nonstopmode'
+
+" SOME CONFIGURATIONS FOR ULTISNIPS
+" Trigger configuration. Do not use <tab> 
+" if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
