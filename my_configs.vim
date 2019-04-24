@@ -155,6 +155,7 @@ let g:tagbar_autopreview=1
 let g:tagbar_sort=0
 map <silent> <F9> :TagbarToggle<CR>
 
+
 " SOME CONFIGURATIONS FOR TAGLISTS
 " let g:Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 " let g:Tlist_Show_One_File = 1

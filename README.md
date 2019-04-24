@@ -218,18 +218,6 @@ This means, **ctags** can not work correctly. Thus, we should install new **ctag
 #alias ctags if you used homebrew
 alias ctags="`brew --prefix`/bin/ctags"
 ```
-3. To add tex and bib support, create `~/.ctags` file and add following
-configuraitons:
-```
---langdef=tex2
---langmap=tex2:.tex
---regex-tex2=/\\label[ \t]*\*?\{[ \t]*([^}]*)\}/\1/l,label/
---langdef=bib
---langmap=bib:.bib
---regex-bib=/^@[A-Za-z]+\{([^,]+),/\1/e,BibTeX-Entries/i
---regex-bib=/^@string\{([^ "#%')(,=}{]+)/\1/s,BibTeX-Strings/i
---regex-bib=/author[[:space:]]*=[[:space:]]*("([^"]+)"|\{([^\}]+)\})[[:space:]]*,?[[:space:]]*$/\2\3/a,BibTeX-Authors/i
-```
 Now, **ctags** can be work correctly.
 
 
@@ -732,6 +720,39 @@ let g:tex_conceal="abdmg"
 let g:vimtex_latexmk_options='-pdf -pdflatex=\"xelatex -synctex=1 %S %O\" -verbose -file-line-error -interaction=nonstopmode'
 ```
 
+11. To add latex and bib tags support, create `~/.ctags` and add following 
+configurations into it.
+```
+--langdef=latex
+--langmap=latex:.tex
+--regex-latex=/^\\tableofcontents/TABLE OF CONTENTS/s,toc/
+--regex-latex=/^\\frontmatter/FRONTMATTER/s,frontmatter/
+--regex-latex=/^\\mainmatter/MAINMATTER/s,mainmatter/
+--regex-latex=/^\\backmatter/BACKMATTER/s,backmatter/
+--regex-latex=/^\\bibliography\{/BIBLIOGRAPHY/s,bibliography/
+--regex-latex=/^\\part[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/PART \2/s,part/
+--regex-latex=/^\\part[[:space:]]*\*[[:space:]]*\{([^}]+)\}/PART \1/s,part/
+--regex-latex=/^\\chapter[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/CHAP \2/s,chapter/
+--regex-latex=/^\\chapter[[:space:]]*\*[[:space:]]*\{([^}]+)\}/CHAP \1/s,chapter/
+--regex-latex=/^\\section[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\. \2/s,section/
+--regex-latex=/^\\section[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\. \1/s,section/
+--regex-latex=/^\\subsection[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\.\. \2/s,subsection/
+--regex-latex=/^\\subsection[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\.\. \1/s,subsection/
+--regex-latex=/^\\subsubsection[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\.\.\. \2/s,subsubsection/
+--regex-latex=/^\\subsubsection[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\.\.\. \1/s,subsubsection/
+--regex-latex=/^\\includegraphics[[:space:]]*(\[[^]]*\])?[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\3/g,graphic+listing/
+--regex-latex=/^\\lstinputlisting[[:space:]]*(\[[^]]*\])?[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\3/g,graphic+listing/
+--regex-latex=/\\label[[:space:]]*\{([^}]+)\}/\1/l,label/
+--regex-latex=/\\ref[[:space:]]*\{([^}]+)\}/\1/r,ref/
+--regex-latex=/\\pageref[[:space:]]*\{([^}]+)\}/\1/p,pageref/
+
+--langdef=bib
+--langmap=bib:.bib
+--regex-bib=/^@[A-Za-z]+\{([^,]+),/\1/e,BibTeX-Entries/i
+--regex-bib=/^@string\{([^ "#%')(,=}{]+)/\1/s,BibTeX-Strings/i
+--regex-bib=/author[[:space:]]*=[[:space:]]*("([^"]+)"|\{([^\}]+)\})[[:space:]]*,?[[:space:]]*$/\2\3/a,BibTeX-Authors/i
+```
+
 Now, you can use `VIM` edit and complie `*.tex` files, and open pdf file 
 automatically.
 
@@ -992,3 +1013,8 @@ More can be found in [official guide](https://github.com/Yggdroot/LeaderF).
 
 ## Ultisnips
 1. `<c-j>` - UltiSnipsExpandTrigger
+
+## vimtex
+1. `\ll` - Start compile the latex document
+2. `\lv` - Open pdf viewer and/or do forward searching
+3. `\lt` - Toggle table of contents (TOC) viewer
