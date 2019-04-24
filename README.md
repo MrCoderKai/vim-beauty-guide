@@ -51,6 +51,8 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [CtrlP](#ctrlp)
     - [LeaderF](#leaderf)
     - [Ultisnips](#ultisnips)
+    - [vimtex](#vimtex)
+    - [mupdf](#mupdf)
 
 # Screenshots
 ![Vim with `tagbar` and `NERDTree`](./images/vim_screenshot.png)
