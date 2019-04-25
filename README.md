@@ -53,6 +53,7 @@ This guide is to make your vim beautiful, and make it easy to use.
     - [Ultisnips](#ultisnips)
     - [vimtex](#vimtex)
     - [mupdf](#mupdf)
+- [Other Promotions](#other-promotions)
 
 # Screenshots
 ![Vim with `tagbar` and `NERDTree`](./images/vim_screenshot.png)
@@ -1029,3 +1030,7 @@ More can be found in [official guide](https://github.com/Yggdroot/LeaderF).
 5. `b` - previous page
 6. `.` - next page, top
 7. `,` - previous page, bottom
+
+# Other Promotions
+1. Fix scroll slow in iTerms2 when scroll in vim
+Open iTerm2->Preferences...->Profiles->Terminal, change `Scrollback lines` to `1`, and uncheck `Save lines to scrollback in alternate screen mode`.
