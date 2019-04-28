@@ -64,7 +64,7 @@ set foldlevelstart=99
 " nnoremap <C-h> <C-w>h
 " nnoremap <C-l> <C-w>l
 " Quicker break into new line after cursor in NORMAL mode
-nnoremap K a<CR><Esc>
+nnoremap <leader>j a<Left><CR><Esc>
 " Quicker clean highlight after searching
 nnoremap <silent> <S-L> :nohlsearch<CR>
 " highlight tabs and trailing spaces
@@ -467,6 +467,7 @@ nnoremap <Leader>a:: :Tabularize /:\zs<CR>
 nnoremap <Leader>a, :Tabularize /,<CR>
 nnoremap <Leader>a- :Tabularize /-<CR>
 
+
 " SOME CONFIGURATIONS FOR VIMTEX PLUGIN
 let g:tex_flavor="latex"
 " Enable vimtex plugin by default
@@ -496,7 +497,6 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
-set mouse=a
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
 noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>

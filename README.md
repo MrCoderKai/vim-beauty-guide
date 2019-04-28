@@ -805,7 +805,7 @@ Those shortcuts can be found in`~/.vim_runtime/vimrcs/*.vim` files.
 5. `f<char>`           - Find the specific `<char>` **f**orward
 6. `F<char>`           - Find the specific `<char>` backward
 7. `vi}`               - enable Visual mode, and select inner Brace
-8. `K`                 - Quicker break into new line after cursor in NORMAL mode
+8. `<leader>j`         - Quicker break into new line after cursor in NORMAL mode
 9. `:set <var>?`       - Print the value of `<var>`
 10. `%`                - Jump to the corresponding brackets
 11. `:Sex`             - Open Netrw Directory in vertical window, choose and enter to open file
@@ -1033,4 +1033,4 @@ More can be found in [official guide](https://github.com/Yggdroot/LeaderF).
 
 # Other Promotions
 1. Fix scroll slow in iTerms2 when scroll in vim
-Open iTerm2->Preferences...->Profiles->Terminal, change `Scrollback lines` to `1`, and uncheck `Save lines to scrollback in alternate screen mode`.
+Open iTerm2->Preferences...->Profiles->Terminal, check `Unlimited scrollback1`, and uncheck `Save lines to scrollback in alternate screen mode`.
