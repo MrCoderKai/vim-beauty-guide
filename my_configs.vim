@@ -259,7 +259,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 nnoremap <c-d> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
-autocmd BufWrite *.tex exec ":call UpdateTitle()"
+autocmd BufWrite *.cpp,*.[ch],*.sh,*.java,*.py,*.tex exec ":call UpdateTitle()"
 " autocmd BufWriteCmd *.tex exec ":call UpdateTitle()"
 
 map <F4> :call UpdateTitle()<CR>
