@@ -34,6 +34,7 @@ This guide is to make your vim beautiful, and make it easy to use.
 - [Install echodoc Plugin](#install-echodoc-plugin)
 - [Install vimtex Plugin](#install-vimtex-plugin)
 - [Install UltiSnips Plugin](#install-ultisnips-plugin)
+- [Install vim-cmake-syntax](#install-vim-cmake-syntax)
 - [Functions](#functions)
 - [Shortcuts](#shortcuts)
     - [Vim](#vim)
@@ -790,6 +791,10 @@ created.
 
 After modification or re-name the file, press `F4` to update modify time and 
 file name.
+
+# Install vim-cmake-syntax
+1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone https://github.com/nickhutchinson/vim-cmake-syntax.git`
 
 # Shortcuts
 Description: The `<leader>` of VIM is mapper to `,` in 
