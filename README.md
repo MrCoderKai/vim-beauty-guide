@@ -784,6 +784,10 @@ detect and load those snippets files.
 
 **Note: snippets files is named by `filetype.snippets`, e.g. tex.snippets.**
 
+# Install vim-cmake-syntax
+1. `cd ~/.vim_runtime/my_plugins`
+2. `git clone https://github.com/nickhutchinson/vim-cmake-syntax.git`
+
 # Functions
 1. Author information can be automatically added when .sh/.cpp/.c/.py files are 
 created.
@@ -792,9 +796,6 @@ created.
 After modification or re-name the file, press `F4` to update modify time and 
 file name.
 
-# Install vim-cmake-syntax
-1. `cd ~/.vim_runtime/my_plugins`
-2. `git clone https://github.com/nickhutchinson/vim-cmake-syntax.git`
 
 # Shortcuts
 Description: The `<leader>` of VIM is mapper to `,` in 
