@@ -143,9 +143,10 @@ export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for [Vim](https://www.vim.org/).
 1. `cd ~/.vim_runtime/my_plugins`
 2. `git clone https://github.com/Valloric/YouCompleteMe.git`
-3. `git submodule update --init --recursive`
-4. `cd ~/.vim_runtime/my_plugins/YouCompleteMe`
-5. `./install.py --clang-completer`
+3. `cd ~/.vim_runtime/my_plugins/YouCompleteMe`
+4. `git submodule update --init --recursive`
+5. If OS is centos 7, please install `python-devel`: `yum install python-devel`
+6. `./install.py --clang-completer`
 After installing **YouCompleteMe**, we should create **.ycm_extra_conf.py** file and configure **YouCompleteMe** in **~/.vim_runtime/my_configs.vim** to make **YouCompleteMe** works normally. By default, there is a **.ycm_extra_conf.py** file in the **YouCompleteMe** installation folder - `~/.vim_runtime/my_plugins/YouCompleteMe/`, but it is not a right configuration file for C-family auto completion. Thus, we should create a new **.ycm_extra_conf.py** file for C-family auto completion. The steps are
 
 1. `cd ~/.vim_runtime/my_plugins/YouCompleteMe/`
@@ -628,7 +629,8 @@ cd ~/.vim_runtime/my_plugins/LeaderF
 signatures from completions in the command line.
 
 1. `cd ~/.vim_runtime/my_plugins`
-2. Add following configurations in `~/.vim_runtime/my_configs.vim`
+2. `git clone https://github.com/Shougo/echodoc.vim.git`
+3. Add following configurations in `~/.vim_runtime/my_configs.vim`
 ```
 " SOME CONFIGURATIONS FOR ECHODOC PLUGIN
 " enable echodoc plugin at vim startup
