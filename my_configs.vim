@@ -64,7 +64,7 @@ set foldlevelstart=99
 " nnoremap <C-h> <C-w>h
 " nnoremap <C-l> <C-w>l
 " Quicker break into new line after cursor in NORMAL mode
-nnoremap <leader>j a<Left><CR><Esc>
+nnoremap <leader>j a<Left><CR><Esc><Up>$
 " Quicker clean highlight after searching
 nnoremap <silent> <S-L> :nohlsearch<CR>
 " highlight tabs and trailing spaces
@@ -80,13 +80,13 @@ set cursorline
 
 
 " configurations for vim-indent-guides pulgin
-let g:indent_guides_enable_on_vim_startup = 1
-set ts=4 sw=4 et
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
+" let g:indent_guides_enable_on_vim_startup = 1
+" set ts=4 sw=4 et
+" let g:indent_guides_guide_size = 1
+" let g:indent_guides_start_level = 2
+" let g:indent_guides_auto_colors = 1
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 
 " Set the appearance of border between vsplit windows
 hi VertSplit ctermbg=black
@@ -236,7 +236,7 @@ let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 " disable those configurations is YouCompleteMe is not installed
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_global_ycm_extra_conf = '/Users/administrator/.vim_runtime/my_plugins/YouCompleteMe/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 1
+let g:ycm_confirm_extra_conf = 0
 " automatically close preview window when leaving Insert mode
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " When this option is set to 1, YCM's identifier completer will also collect 
@@ -253,6 +253,7 @@ let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 " disable diagnostic disaply features
 let g:ycm_show_diagnostics_ui = 0
+let g:ycm_key_list_stop_completion = ['<CR>']
 " Press <Enter> to select current item
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 " Go to definition else declaration
@@ -271,8 +272,8 @@ func SetTitle()
 	if &filetype == 'sh' || &filetype == 'python'
 		call setline(1, "##########################################################################")
 		call append(line("."), "# File Name: ".expand("%"))
-		call append(line(".")+1, "# Author: chengkai")
-		call append(line(".")+2, "# E-mail: chengkaiupc@163.com")
+		call append(line(".")+1, "# Author: bubblebear")
+		call append(line(".")+2, "# E-mail: ")
 		call append(line(".")+3, "# Created Time: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+4, "# Last Modified: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+5, "# Description: ")
@@ -282,14 +283,13 @@ func SetTitle()
 		call append(line(".")+9, "# Co-Author: ")
 		call append(line(".")+10, "# Copyright (c) All Rights Reserved")
 		call append(line(".")+11, "#########################################################################")
-    endif
-    if &filetype == 'tex'
+    elseif &filetype == 'tex'
 		call setline(1,           "%!TEX program = xelatex")
 		call append(line("."),    "%!TEX encoding = UTF-8 Unicode")
 		call append(line(".")+1, "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 		call append(line(".")+2,  "% File Name: ".expand("%"))
-		call append(line(".")+3,  "% Author: chengkai")
-		call append(line(".")+4,  "% E-mail: chengkaiupc@163.com")
+		call append(line(".")+3,  "% Author: bubblebear")
+		call append(line(".")+4,  "% E-mail: ")
 		call append(line(".")+5,  "% Created Time: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+6,  "% Last Modified: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+7,  "% Description: ")
@@ -302,8 +302,8 @@ func SetTitle()
 	else
 		call setline(1, "/*************************************************************************")
 		call append(line("."),    "    > File Name: ".expand("%"))
-		call append(line(".")+1,  "    > Author: chengkai")
-		call append(line(".")+2,  "    > E-mail: chengkaiupc@163.com")
+		call append(line(".")+1,  "    > Author: bubblerbear")
+		call append(line(".")+2,  "    > E-mail: ")
 		call append(line(".")+3,  "    > Created Time: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+4,  "    > Last Modified: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+5,  "    > Description: ")
