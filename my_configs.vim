@@ -268,58 +268,58 @@ map <F4> :call UpdateTitle()<CR>
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java,*.py,*.tex exec ":call SetTitle()"
 " Definition of SetTitle function. Automatically insert file header
 func SetTitle()
-	" if file type is *.sh
-	if &filetype == 'sh' || &filetype == 'python'
-		call setline(1, "##########################################################################")
-		call append(line("."), "# File Name: ".expand("%"))
-		call append(line(".")+1, "# Author: bubblebear")
-		call append(line(".")+2, "# E-mail: ")
-		call append(line(".")+3, "# Created Time: ".strftime("%m/%d  %H:%M:%S  %Y"))
+    " if file type is *.sh
+    if &filetype == 'sh' || &filetype == 'python'
+        call setline(1, "##########################################################################")
+        call append(line("."), "# File Name: ".expand("%"))
+        call append(line(".")+1, "# Author: bubblebear")
+        call append(line(".")+2, "# E-mail: ")
+        call append(line(".")+3, "# Created Time: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+4, "# Last Modified: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+5, "# Description: ")
-		call append(line(".")+6, "#     > ")
-		call append(line(".")+7, "#     > ")
-		call append(line(".")+8, "#     > ")
-		call append(line(".")+9, "# Co-Author: ")
-		call append(line(".")+10, "# Copyright (c) All Rights Reserved")
-		call append(line(".")+11, "#########################################################################")
+        call append(line(".")+6, "#     > ")
+        call append(line(".")+7, "#     > ")
+        call append(line(".")+8, "#     > ")
+        call append(line(".")+9, "# Co-Author: ")
+        call append(line(".")+10, "# Copyright (c) All Rights Reserved")
+        call append(line(".")+11, "#########################################################################")
     elseif &filetype == 'tex'
-		call setline(1,           "%!TEX program = xelatex")
-		call append(line("."),    "%!TEX encoding = UTF-8 Unicode")
-		call append(line(".")+1, "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
-		call append(line(".")+2,  "% File Name: ".expand("%"))
-		call append(line(".")+3,  "% Author: bubblebear")
-		call append(line(".")+4,  "% E-mail: ")
-		call append(line(".")+5,  "% Created Time: ".strftime("%m/%d  %H:%M:%S  %Y"))
+        call setline(1,           "%!TEX program = xelatex")
+        call append(line("."),    "%!TEX encoding = UTF-8 Unicode")
+        call append(line(".")+1, "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+        call append(line(".")+2,  "% File Name: ".expand("%"))
+        call append(line(".")+3,  "% Author: bubblebear")
+        call append(line(".")+4,  "% E-mail: ")
+        call append(line(".")+5,  "% Created Time: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+6,  "% Last Modified: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+7,  "% Description: ")
-		call append(line(".")+8,  "%     > ")
-		call append(line(".")+9,  "%     > ")
-		call append(line(".")+10, "%     > ")
-		call append(line(".")+11, "% Co-Author: ")
-		call append(line(".")+12, "% Copyright (c) All Rights Reserved")
-		call append(line(".")+13, "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
-	else
-		call setline(1, "/*************************************************************************")
-		call append(line("."),    "    > File Name: ".expand("%"))
-		call append(line(".")+1,  "    > Author: bubblerbear")
-		call append(line(".")+2,  "    > E-mail: ")
-		call append(line(".")+3,  "    > Created Time: ".strftime("%m/%d  %H:%M:%S  %Y"))
+        call append(line(".")+8,  "%     > ")
+        call append(line(".")+9,  "%     > ")
+        call append(line(".")+10, "%     > ")
+        call append(line(".")+11, "% Co-Author: ")
+        call append(line(".")+12, "% Copyright (c) All Rights Reserved")
+        call append(line(".")+13, "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+    else
+        call setline(1, "/*************************************************************************")
+        call append(line("."),    "    > File Name: ".expand("%"))
+        call append(line(".")+1,  "    > Author: bubblerbear")
+        call append(line(".")+2,  "    > E-mail: ")
+        call append(line(".")+3,  "    > Created Time: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+4,  "    > Last Modified: ".strftime("%m/%d  %H:%M:%S  %Y"))
         call append(line(".")+5,  "    > Description: ")
-		call append(line(".")+6,  "         > ")
-		call append(line(".")+7,  "         > ")
-		call append(line(".")+8,  "         > ")
-		call append(line(".")+9,  "    > Co-Author: ")
-		call append(line(".")+10, "    > Copyright (c) All Rights Reserved")
-		call append(line(".")+11, " ************************************************************************/")
-	endif
+        call append(line(".")+6,  "         > ")
+        call append(line(".")+7,  "         > ")
+        call append(line(".")+8,  "         > ")
+        call append(line(".")+9,  "    > Co-Author: ")
+        call append(line(".")+10, "    > Copyright (c) All Rights Reserved")
+        call append(line(".")+11, " ************************************************************************/")
+    endif
     if &filetype == 'sh'
-		call append(line(".")+12, "#!/bin/bash")
-		call append(line(".")+13, "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:")
-		call append(line(".")+14, "export PATH")
-		call append(line(".")+15, "")
-		call append(line(".")+16, "")
+        call append(line(".")+12, "#!/bin/bash")
+        call append(line(".")+13, "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:")
+        call append(line(".")+14, "export PATH")
+        call append(line(".")+15, "")
+        call append(line(".")+16, "")
     endif
     if &filetype == 'python'
         call append(line(".")+12, "#!/usr/bin/python")
@@ -327,23 +327,23 @@ func SetTitle()
         call append(line(".")+14, "import os")
         call append(line(".")+15, "import sys")
     endif 
-	if &filetype == 'cpp'
-		call append(line(".")+12, "#include <iostream>")
-		call append(line(".")+13, "")
-	endif
-	if &filetype == 'c'
-		call append(line(".")+12, "#include <stdio.h>")
-		call append(line(".")+13, "")
-	endif
+    if &filetype == 'cpp'
+        call append(line(".")+12, "#include <iostream>")
+        call append(line(".")+13, "")
+    endif
+    if &filetype == 'c'
+        call append(line(".")+12, "#include <stdio.h>")
+        call append(line(".")+13, "")
+    endif
     if &filetype == 'tex'
         call append(line(".")+14, "")
     endif
-	"	if &filetype == 'java'
-	"		call append(line(".")+6,"public class ".expand("%"))
-	"		call append(line(".")+7,"")
-	"	endif
+    "    if &filetype == 'java'
+    "        call append(line(".")+6,"public class ".expand("%"))
+    "        call append(line(".")+7,"")
+    "    endif
     " Set cursor to the end of file after creating new file
-	autocmd BufNewFile * normal G
+    autocmd BufNewFile * normal G
 endfunc
 
 function UpdateTitle()
@@ -515,6 +515,6 @@ if has("autocmd")
     " Highlight TODO, FIXME, NOTE, eyc.
     if v:version > 701
         autocmd Syntax * call matchadd('Todo', '\W\zs\(TODO\|FIXME\|CHANGED\|BUG\|HACK\)')
-        autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\)')
+        autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|IMPORTANT\)')
     endif
 endif
