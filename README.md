@@ -348,10 +348,11 @@ cd ~/.vim_runtime/
 mkdir sources_deprecated
 mv sources_non_forked/lightline* sources_deprecated
 ```
-2. Install `vim-airline`
+2. Install `vim-airline` and `vim-airline-themes`
 ```
 cd ~/.vim_runtime/my_plugins
 git clone https://github.com/vim-airline/vim-airline.git
+git clone https://github.com/vim-airline/vim-airline-themes
 ```
 3. Add the following configuraitons in `~/.vim_runtime/my_configs.vim`
 ```
